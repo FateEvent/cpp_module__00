@@ -6,22 +6,23 @@
 
 int main()
 {
-    ClapTrap    fab( "Fab" );
-    FragTrap    diane( "Diane" );
-    DiamondTrap shanti( "Shanti" );
-    DiamondTrap kitty;
-    ClapTrap    bruce;
+	ClapTrap	fab( "Fab" );
+	FragTrap	diane( "Diane" );
+	DiamondTrap	shanti( "Shanti" );
+	DiamondTrap	kitty;
+	ClapTrap	bruce;
 
-    fab.attack( "Shanti" );
-    diane.attack( "Fab" );
-    fab.takeDamage( 30 );
-    diane.beRepaired( 100 );
-    diane.attack( "Fab" );
-    shanti.whoAmI();
-    bruce.takeDamage(68);
-    std::cout << bruce.getName() << " has " << bruce.getHitPoints() << " hit points left." << std::endl;
-    bruce = fab;
-    std::cout << bruce.getName() << " has " << bruce.getHitPoints() << " hit points left." << std::endl;
+	fab.attack( "Shanti" );
+	diane.attack( "Fab" );
+	fab.takeDamage( 30 );
+	diane.beRepaired( 100 );
+	diane.attack( "Fab" );
+	shanti.attack( "Diane" );
+	shanti.whoAmI();
+	bruce.takeDamage(68);
+	std::cout << "The robot " << bruce.getName() << " has " << bruce.getHitPoints() << " hit points left." << std::endl;
+	bruce = fab;
+	std::cout << "The robot " << bruce.getName() << " has " << bruce.getHitPoints() << " hit points left." << std::endl;
 
-    return (0);
+	return (0);
 }

@@ -2,6 +2,7 @@
 
 DiamondTrap::DiamondTrap( void ) : ClapTrap(), ScavTrap(), FragTrap()
 {
+	this->_name = "default DiamC3P0";
 	this->FragTrap::_hitPoints = 100;
 	this->ScavTrap::_energyPoints = 50;
 	this->FragTrap::_attackDamage = 30;

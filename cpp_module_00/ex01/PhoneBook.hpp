@@ -8,15 +8,15 @@
 
 class   PhoneBook
 {
-    Contact _contactArr[8];
-    int     _nextIndex;
+	Contact	_contactArr[8];
+	int		_nextIndex;
 
 public:
-    PhoneBook();
-    void    addContact(Contact *entry);
-    void    searchContact(void);
-    void    setNextIndex(void);
-    int     getNextIndex(void) const;
+	PhoneBook();
+	void	addContact(Contact *entry);
+	void	searchContact(void);
+	void	setNextIndex(void);
+	int		getNextIndex(void) const;
 };
 
 #endif
