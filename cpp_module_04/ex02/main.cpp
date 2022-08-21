@@ -19,7 +19,7 @@ int	main()
 	// It's not possible to instantiate an object of an abstract class like the following:
 	// const AAnimal* l = new AAnimal();
 
-	delete j;//should not create a leak
+	delete j;	//should not create a leak
 	delete k;
 
 	return (0);

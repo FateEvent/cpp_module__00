@@ -16,7 +16,7 @@ int	main()
 	const Animal* j = new Dog();
 	const Animal* k = new Cat();
 
-	delete j;//should not create a leak
+	delete j;	//should not create a leak
 	delete k;
 
 	return (0);
