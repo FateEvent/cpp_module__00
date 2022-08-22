@@ -30,13 +30,11 @@ Cure & Cure::operator = ( const Cure & other )
 
 Cure* Cure::clone() const
 {
-	Cure *clone;
-	clone->_type = this->_type;
-	return (clone);
+	return (new Cure(*this));
 }
 
 
-void use(ICharacter & target)
+void Cure::use(ICharacter & target)
 {
 	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

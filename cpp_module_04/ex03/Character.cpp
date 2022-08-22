@@ -2,27 +2,33 @@
 
 Character::Character( void ) : _name("black cultist")
 {
-	std::cout << "A " << this->_name << " has been created" << std::endl;
+	std::cout << this->_name << " has been created" << std::endl;
+}
+
+
+Character::Character( std::string const & name ) : _name( name )
+{
+	std::cout << this->_name << " has been created" << std::endl;
 }
 
 
 Character::Character(std::string const & name, AMateria* m) : _name(name)
 {
 	this->_stock[0] = m;
-	std::cout << "A " << this->_name << " with " << this->_stock[0]->getType() << " has been created" << std::endl;
+	std::cout << this->_name << " with " << this->_stock[0]->getType() << " has been created" << std::endl;
 }
 
 
 Character::Character( const Character & other )
-{
+{	
 	*this = other;
-	std::cout << "A " << this->_name << "genetically modified with " << this->_stock[0]->getType() << " has been created" << std::endl;
+	std::cout << this->_name << "genetically modified with " << this->_stock[0]->getType() << " has been created" << std::endl;
 }
 
 
 Character::~Character( void )
 {
-	std::cout << "The " << this->_name << " has been destroyed" << std::endl;
+	std::cout << this->_name << " has been destroyed" << std::endl;
 }
 
 
@@ -30,14 +36,19 @@ Character & Character::operator = ( const Character & other )
 {
 	if (this == &other)
 		return (*this);
+	Character *character = new Character;
 	int i = 0;
 	while (i < 4)
 	{
-		this->_stock[i] = other._stock[i]->clone();
+		if (character->_stock[i])
+		{
+			delete character->_stock[i];
+			character->_stock[i] = other._stock[i]->clone();
+		}
 		i++;
 	}
-	this->_name = other._name;
-	return (*this);
+	character->_name = other._name;
+	return (*character);
 }
 
 
@@ -52,8 +63,9 @@ void Character::equip(AMateria* m)
 	size_t i = 0;
 	while(i < 4)
 	{
-		if (this->_stock[i]->getType() == "empty")
+		if (this->_stock[i])
 		{
+			delete this->_stock[i];
 			this->_stock[i] = m;
 			return ;
 		}
@@ -71,15 +83,13 @@ void Character::unequip(int idx)
 }
 
 
-void Character::use(int idx, Character& target);
+void Character::use(int idx, ICharacter& target)
 {
 	if (idx < 0 || idx > 3)
 		return ;
-	if (this->_stock[idx]->getType() == "ice")
-		this->Ice::use(target);
-	if (this->_stock[idx]->getType() == "cure")
-		this->Cure::use(target);
-	else
-		std::cout << "* sprays " << this->_stock[idx] << "on " << target.getName() << "'s wounds *" << std::endl;
-	this->unequip( idx );
+	if (this->_stock[idx])
+	{
+		this->_stock[idx]->use( target );
+		this->unequip( idx );
+	}
 }

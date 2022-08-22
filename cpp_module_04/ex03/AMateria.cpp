@@ -5,6 +5,7 @@ AMateria::AMateria( void ) : _type("empty")
 	std::cout << "AMateria default constructor called" << std::endl;
 }
 
+
 AMateria::AMateria(std::string const & type) : _type(type)
 {
 	std::cout << "AMateria constructor called" << std::endl;
@@ -42,14 +43,6 @@ void AMateria::setType( std::string type )
 std::string const & AMateria::getType() const
 {
 	return (this->_type);
-}
-
-
-AMateria* AMateria::clone() const
-{
-	AMateria *clone;
-	clone->_type = this->_type;
-	return (clone);
 }
 
 
