@@ -74,9 +74,11 @@ void    PhoneBook::searchContact(void)
 	{
 		std::cout << "Please, now insert the index of the entry you're looking for." << std::endl;
 		std::cin >> input;
-		while (input < 0 || input >= i)
+		while (std::cin.fail() || input < 0 || input >= i)
 		{
-			std::cout << "Please, insert a correct value." << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "This is not the entry you are looking for." << std::endl;
 			std::cin >> input;
 		}
 		this->_contactArr[input].displayEntry();
