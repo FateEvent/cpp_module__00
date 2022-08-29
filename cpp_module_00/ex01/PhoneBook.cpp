@@ -28,12 +28,26 @@ void	PhoneBook::setNextIndex(void)
 }
 
 
+static void	headerDisplay(void)
+{
+	std::cout.setf ( std::ios::right, std::ios::adjustfield );
+	std::cout.width (10);
+	std::cout << "index" << " | ";
+	std::cout.width (10);
+	std::cout << "first name" << " | ";
+	std::cout.width (10);
+	std::cout << "last name" << " | ";
+	std::cout.width (10);
+	std::cout << "nickname" << std::endl;
+}
+
 void    PhoneBook::searchContact(void)
 {
 	std::string     temp("empty string");
 	unsigned int    i(0);
 	int             input(-1);
 
+	headerDisplay();
 	while (i < 8 && this->_contactArr[i].getFirstName() != "empty string")
 	{
 		std::cout.setf ( std::ios::dec, std::ios::basefield );

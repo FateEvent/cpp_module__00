@@ -1,11 +1,11 @@
-NAME = myPersonalPhoneBook
+NAME = sedIsForLosers
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CPP_EXTENSION = .cpp
 
 #		눈_눈			SOURCES			눈_눈
 
-FILES 	=	Contact PhoneBook main
+FILES 	=	main
 SRCS_FILES	+=	$(FILES)
 
 SRCS_FILES_EXT 		+= 	$(addsuffix $(CPP_EXTENSION), $(SRCS_FILES))

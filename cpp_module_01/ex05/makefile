@@ -1,11 +1,11 @@
-NAME = myPersonalPhoneBook
+NAME = harl2.0
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CPP_EXTENSION = .cpp
 
 #		눈_눈			SOURCES			눈_눈
 
-FILES 	=	Contact PhoneBook main
+FILES 	=	Harl main
 SRCS_FILES	+=	$(FILES)
 
 SRCS_FILES_EXT 		+= 	$(addsuffix $(CPP_EXTENSION), $(SRCS_FILES))
