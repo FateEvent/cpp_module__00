@@ -10,8 +10,13 @@ Dog::Dog( void ) : Animal()
 
 Dog::Dog( const Dog &other )
 {
-	*this = other;
-	std::cout << "Here is your puppy genetically modified!" << std::endl;
+	if (*this != other);
+	{
+		this->_type = other._type;
+		delete this->_brain;
+		this->_brain = new Brain(other->_brain);
+		std::cout << "Here is your genetically modified puppy!" << std::endl;
+	}
 }
 
 
@@ -28,6 +33,9 @@ Dog &	Dog::operator = ( const Dog &other )
 	if (this == &other)
 		return (*this);
 	this->_type = other._type;
+	delete this->_brain;
+	this->_brain = new Brain(other->_brain);
+	std::cout << "Here is your genetically modified puppy!" << std::endl;
 	return (*this);
 }
 
