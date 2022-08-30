@@ -60,7 +60,7 @@ Fixed::Fixed( int const num )
 Fixed::Fixed( float const num )
 {
     std::cout << "Float constructor called" << std::endl;
-    _value = (num * (float)(1 << this->_bits));
+    _value = roundf((float)(num * (1 << this->_bits)));
 }
 
 
