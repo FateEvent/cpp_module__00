@@ -80,7 +80,7 @@ float	Fixed::toFloat( void ) const
 }
 
 
-std::ostream&    operator << (std::ostream& os, const Fixed& num)
+std::ostream&	operator << (std::ostream& os, const Fixed& num)
 {
 	return (os << num.toFloat());
 }
