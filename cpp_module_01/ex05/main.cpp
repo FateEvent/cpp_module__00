@@ -3,13 +3,13 @@
 
 int main()
 {
-    Harl    harl;
+	Harl	harl;
 
-    harl.complain("INFO");
-    harl.complain("error");
-    harl.complain("debug");
-    harl.complain("DEBUG");
-    harl.complain("boycott");
-    harl.complain("WARNING");
-    return 0;
+	harl.complain("INFO");
+	harl.complain("error");
+	harl.complain("debug");
+	harl.complain("DEBUG");
+	harl.complain("boycott");
+	harl.complain("WARNING");
+	return 0;
 }
