@@ -10,13 +10,10 @@ Cat::Cat( void ) : Animal()
 
 Cat::Cat( const Cat &other )
 {
-	if (*this != other);
-	{
-		this->_type = other._type;
-		delete this->_brain;
-		this->_brain = new Brain(other->_brain);
-		std::cout << "Wow, a new genetically modified kitten!" << std::endl;
-	}
+	this->_type = other._type;
+	delete this->_brain;
+	this->_brain = new Brain( other.getBrain() );
+	std::cout << "Wow, a new genetically modified kitten!" << std::endl;
 }
 
 
@@ -34,7 +31,7 @@ Cat &	Cat::operator = ( const Cat &other )
 		return (*this);
 	this->_type = other._type;
 	delete this->_brain;
-	this->_brain = new Brain(other->_brain);
+	this->_brain = new Brain( other.getBrain() );
 	std::cout << "Wow, a new genetically modified kitten!" << std::endl;
 	return (*this);
 }
@@ -43,4 +40,10 @@ Cat &	Cat::operator = ( const Cat &other )
 void	Cat::makeSound( void ) const
 {
 	std::cout << "Meow meow!" << std::endl;
+}
+
+
+Brain &	Cat::getBrain( void ) const
+{
+		return (*(this->_brain));
 }

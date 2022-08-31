@@ -4,13 +4,16 @@
 
 int main()
 {
-    ClapTrap    fab( "Fab" );
-    ClapTrap    tan( "Tania" );
-    ScavTrap    thierry( "Thierry" );
+	ClapTrap	fab( "Fab" );
+	ClapTrap	tan( "Tania" );
+	ScavTrap	thierry( "Thierry" );
+	ScavTrap	noName;
 
-    fab.attack( "Tania" );
-    tan.beRepaired(5);
-    thierry.attack("Fabio");
+	noName = thierry;
+	noName.guardGate();
+	fab.attack( "Tania" );
+	tan.beRepaired(5);
+	thierry.attack("Fabio");
 
-    return (0);
+	return (0);
 }

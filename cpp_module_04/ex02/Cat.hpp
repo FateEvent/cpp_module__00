@@ -6,6 +6,8 @@
 # include "AAnimal.hpp"
 # include "Brain.hpp"
 
+class Brain;
+
 class Cat : public AAnimal
 {
 public:
@@ -14,6 +16,7 @@ public:
 	~Cat( void );
 	Cat &			operator = ( const Cat &other );
 	virtual void	makeSound( void ) const;
+	Brain &			getBrain( void ) const;
 
 private:
 	Brain			*_brain;

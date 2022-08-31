@@ -10,13 +10,10 @@ Dog::Dog( void ) : AAnimal()
 
 Dog::Dog( const Dog &other )
 {
-	if (*this != other);
-	{
-		this->_type = other._type;
-		delete this->_brain;
-		this->_brain = new Brain(other->_brain);
-		std::cout << "Here is your genetically modified puppy!" << std::endl;
-	}
+	this->_type = other._type;
+	delete this->_brain;
+	this->_brain = new Brain( other.getBrain() );
+	std::cout << "Here is your genetically modified puppy!" << std::endl;
 }
 
 
@@ -34,7 +31,7 @@ Dog &	Dog::operator = ( const Dog &other )
 		return (*this);
 	this->_type = other._type;
 	delete this->_brain;
-	this->_brain = new Brain(other->_brain);
+	this->_brain = new Brain( other.getBrain() );
 	std::cout << "Here is your genetically modified puppy!" << std::endl;
 	return (*this);
 }
@@ -45,3 +42,8 @@ void	Dog::makeSound( void ) const
 	std::cout << "Woof woof!" << std::endl;
 }
 
+
+Brain &	Dog::getBrain( void ) const
+{
+		return (*(this->_brain));
+}

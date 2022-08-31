@@ -36,4 +36,3 @@ std::string	*Brain::getIdeas( void )
 {
 	return (this->_ideas);
 }
-
