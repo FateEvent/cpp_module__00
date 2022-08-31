@@ -5,6 +5,9 @@
 # include <string>
 # include <exception>
 # include "BureauException.hpp"
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -23,6 +26,7 @@ public:
 	int						getGrade( void ) const;
 	void					promote( void );
 	void					demote( void );
+	void					signForm( Form form );
 
 	friend std::ostream&	operator << (std::ostream& os, const Bureaucrat& employee);
 };

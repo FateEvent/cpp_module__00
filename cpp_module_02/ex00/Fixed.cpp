@@ -26,7 +26,7 @@ Fixed & Fixed::operator = (Fixed const & other) throw ()
         return  (*this);
     this->_value = other._value;
     std::cout << "Copy assignment operator called" << std::endl;
-    return *this;
+    return (*this);
 
 }
 
