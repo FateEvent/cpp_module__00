@@ -5,19 +5,19 @@ const int Fixed::_bits = 8;
 
 Fixed::Fixed( void ) : _value(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+
 }
 
 
 Fixed::Fixed( Fixed const& other ) : _value(other._value)
 {
-    std::cout << "Copy constructor called" << std::endl;
+
 }
 
 
 Fixed::~Fixed( void )
 {
-    std::cout << "Destructor called" << std::endl;
+
 }
 
 
@@ -26,21 +26,18 @@ Fixed&  Fixed::operator = (Fixed const & other) throw ()
     if (this == & other)
         return (*this);
     this->_value = other._value;
-    std::cout << "Copy assignment operator called" << std::endl;
     return *this;
 }
 
 
-int Fixed::getRawBits( void ) const
+int	Fixed::getRawBits( void ) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
     return (this->_value);
 }
 
 
-void    Fixed::setRawBits( int const raw )
+void	Fixed::setRawBits( int const raw )
 {
-    std::cout << "SetRawBits member function called" << std::endl;
     this->_value = raw;
 }
 
@@ -51,14 +48,12 @@ void    Fixed::setRawBits( int const raw )
 
 Fixed::Fixed( int const num )
 {
-    std::cout << "Int constructor called" << std::endl;
     _value = roundf(num << this->_bits);
 }
 
 
 Fixed::Fixed( float const num )
 {
-    std::cout << "Float constructor called" << std::endl;
     _value = roundf((float)(num * (1 << this->_bits)));
 }
 
@@ -73,13 +68,13 @@ int Fixed::toInt( void ) const
 }
 
 
-float   Fixed::toFloat( void ) const
+float	Fixed::toFloat( void ) const
 {
     return ((float)this->_value / (float)(1 << this->_bits));
 }
 
 
-std::ostream&    operator << (std::ostream& os, const Fixed& num)
+std::ostream&	operator << (std::ostream& os, const Fixed& num)
 {
     os << num.toFloat();
     return os;
@@ -87,7 +82,7 @@ std::ostream&    operator << (std::ostream& os, const Fixed& num)
 
 
 // Overloaded Comparison Operators
-bool    Fixed::operator>(Fixed fixed) const
+bool	Fixed::operator>(Fixed fixed) const
 {
 	return (this->toFloat() > fixed.toFloat());
 }

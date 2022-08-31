@@ -1,24 +1,26 @@
 #include "Point.hpp"
 
-static float    sign (Point const a, Point const b, Point const c)
+bool	bsp( Point const a, Point const b, Point const c, Point const point)
 {
-    return (a.getX() - c.getX()) * (b.getY() - c.getY()) - (b.getX() - c.getX()) * (a.getY() - c.getY());
-}
+	float	s1 = c.getY() - a.getY();
+	float	s2 = c.getX() - a.getX();
+	float	s3 = b.getY() - a.getY();
+	float	s4 = point.getY() - a.getY();
 
-bool    bsp( Point const a, Point const b, Point const c, Point const point)
-{
-    float   d1, d2, d3;
-    bool    has_neg, has_pos;
+	float	w1 = (a.getX() * s1 + s4 * s2 - point.getX() * s1) / (s3 * s2 - (b.getX()-a.getX()) * s1);
+	float	w2 = (s4 - w1 * s3) / s1;
 
-    d1 = sign(point, a, b);
-    d2 = sign(point, b, c);
-    d3 = sign(point, c, a);
+	bool	onIt = (isBetween(a, b, point) || isBetween(b, c, point) || isBetween(c, a, point));
 
-    has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
-    has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+	if (onIt)
+	{
+		std::cout << "The point " << point << " lies on the perimeter of the triangle made up of " << std::endl;
+		std::cout << "a: " << a << ", b: " << b << ", c: " << c << "." << std::endl;
+		return (!onIt);
+	}
 
-    std::cout << "The point " << point << " is contained in the triangle composed of the points " << std::endl;
-    std::cout << "a: " << a << ", b: " << b << ", c: " << c << " : " << !(has_neg && has_pos) << std::endl;
-
-    return !(has_neg && has_pos);
+	std::cout << "Is the point " << point << " contained in the triangle composed of the points " << std::endl;
+	std::cout << "a: " << a << ", b: " << b << ", c: " << c << " ? " << (w1 >= 0 && w2 >= 0 && (w1 + w2) <= 1) << std::endl;
+	
+	return (w1 >= 0 && w2 >= 0 && (w1 + w2) <= 1);
 }
