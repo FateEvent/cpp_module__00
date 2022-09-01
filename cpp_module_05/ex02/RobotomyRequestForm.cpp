@@ -1,13 +1,13 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm( void ) : AForm("robotomy request form", 72, 45),
+RobotomyRequestForm::RobotomyRequestForm( void ) : Form("robotomy request form", 72, 45),
 	_target("mayor's garden")
 {
 
 }
 
 
-RobotomyRequestForm::RobotomyRequestForm( std::string const target ) : AForm("robotomy request form", 72, 45),
+RobotomyRequestForm::RobotomyRequestForm( std::string const target ) : Form("robotomy request form", 72, 45),
 	_target(target)
 {
 
@@ -20,7 +20,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 }
 
 
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const& other ) : AForm( other.getName(), other.getSignatureGrade(), other.getExecutionGrade() ),
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const& other ) : Form( other.getName(), other.getSignatureGrade(), other.getExecutionGrade() ),
 	_target(other.getTarget())
 {
 	if (other.getIsSigned())
@@ -52,13 +52,7 @@ std::string	RobotomyRequestForm::getTarget( void ) const
 }
 
 
-void	RobotomyRequestForm::beSigned( Bureaucrat const& employee )
-{
-	this->AForm::beSigned(employee);
-}
-
-
-void	RobotomyRequestForm::execute(Bureaucrat const& executor) const
+bool	RobotomyRequestForm::execute(Bureaucrat const& executor) const
 {
 	try {
 		if (!this->getIsSigned())
@@ -69,14 +63,19 @@ void	RobotomyRequestForm::execute(Bureaucrat const& executor) const
 				if (executor.getGrade() > this->getExecutionGrade())
 					throw BureauException("RobotomyRequestForm::GradeTooLowException");
 				else
+				{
 					this->robotomize();
+					return (1);
+				}
 			}
 			catch (BureauException& e) {
 				std::cerr << e.what() << std::endl;
+				return (0);
 			}
 		}
 	}
 	catch (BureauException& e) {
 		std::cerr << e.what() << std::endl;
+		return (0);
 	}
 }

@@ -90,7 +90,7 @@ void	Bureaucrat::demote( void )
 }
 
 
-void	Bureaucrat::signForm( AForm form )
+void	Bureaucrat::signForm( Form& form )
 {
 	if (!form.getIsSigned())
 	{
@@ -102,4 +102,13 @@ void	Bureaucrat::signForm( AForm form )
 	}
 	else
 		std::cout << "The " << form.getName() << " is already signed" << std::endl;
+}
+
+
+void	Bureaucrat::executeForm( Form const & form )
+{
+	if (form.execute( *this ))
+		std::cout << this->getName() << " executed the " << form.getName() << std::endl;
+	else
+		std::cout << this->getName() << " couldn't execute the " << form.getName() << std::endl;
 }

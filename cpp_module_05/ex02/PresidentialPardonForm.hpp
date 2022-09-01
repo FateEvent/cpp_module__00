@@ -6,11 +6,11 @@
 # include <string>
 # include "BureauException.hpp"
 # include "Bureaucrat.hpp"
-# include "AForm.hpp"
+# include "Form.hpp"
 
 class Bureaucrat;
 
-class PresidentialPardonForm : public AForm
+class PresidentialPardonForm : public Form
 {
 	std::string				_target;
 
@@ -24,8 +24,7 @@ public:
 	std::string				getTarget( void ) const;
 	void					forgive( void ) const;
 
-	virtual void			beSigned( Bureaucrat const& employee );
-	virtual void			execute( Bureaucrat const& executor ) const;
+	virtual bool			execute( Bureaucrat const& executor ) const;
 };
 
 std::ostream&	operator << (std::ostream& os, const PresidentialPardonForm& form);

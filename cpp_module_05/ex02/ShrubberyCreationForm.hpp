@@ -6,11 +6,11 @@
 # include <string>
 # include "BureauException.hpp"
 # include "Bureaucrat.hpp"
-# include "AForm.hpp"
+# include "Form.hpp"
 
 class Bureaucrat;
 
-class ShrubberyCreationForm : public AForm
+class ShrubberyCreationForm : public Form
 {
 	std::string								_target;
 
@@ -23,8 +23,8 @@ public:
 	~ShrubberyCreationForm( void );
 	std::string				getTarget( void ) const;
 	int						plantingTrees( void ) const;
-	virtual void			beSigned( Bureaucrat const& employee );
-	virtual void			execute( Bureaucrat const& executor ) const;
+
+	virtual bool			execute( Bureaucrat const& executor ) const;
 };
 
 std::ostream&	operator << (std::ostream& os, const ShrubberyCreationForm& form);

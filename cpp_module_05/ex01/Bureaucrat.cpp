@@ -90,7 +90,7 @@ void	Bureaucrat::demote( void )
 }
 
 
-void	Bureaucrat::signForm( Form form )
+void	Bureaucrat::signForm( Form& form )
 {
 	if (!form.getIsSigned())
 	{

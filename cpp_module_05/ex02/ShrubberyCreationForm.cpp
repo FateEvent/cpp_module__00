@@ -1,13 +1,13 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("shrubbery creation form", 145, 137),
+ShrubberyCreationForm::ShrubberyCreationForm( void ) : Form("shrubbery creation form", 145, 137),
 	_target("the intern")
 {
 
 }
 
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string const target ) : AForm("shrubbery creation form", 145, 137),
+ShrubberyCreationForm::ShrubberyCreationForm( std::string const target ) : Form("shrubbery creation form", 145, 137),
 	_target(target)
 {
 
@@ -20,7 +20,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 }
 
 
-ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const& other ) : AForm( other.getName(), other.getSignatureGrade(), other.getExecutionGrade() ),
+ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const& other ) : Form( other.getName(), other.getSignatureGrade(), other.getExecutionGrade() ),
 	_target(other.getTarget())
 {
 	if (other.getIsSigned())
@@ -52,13 +52,7 @@ std::string	ShrubberyCreationForm::getTarget( void ) const
 }
 
 
-void	ShrubberyCreationForm::beSigned( Bureaucrat const& employee )
-{
-	this->AForm::beSigned(employee);
-}
-
-
-void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
+bool	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
 	try {
 		if (!this->getIsSigned())
@@ -69,14 +63,19 @@ void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 				if (executor.getGrade() > this->getExecutionGrade())
 					throw BureauException("ShrubberyCreationForm::GradeTooLowException");
 				else
+				{
 					this->plantingTrees();
+					return (1);
+				}
 			}
 			catch (BureauException& e) {
 				std::cerr << e.what() << std::endl;
+				return (0);
 			}
 		}
 	}
 	catch (BureauException& e) {
 		std::cerr << e.what() << std::endl;
+		return (0);
 	}
 }

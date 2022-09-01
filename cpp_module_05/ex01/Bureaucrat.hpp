@@ -26,7 +26,7 @@ public:
 	int						getGrade( void ) const;
 	void					promote( void );
 	void					demote( void );
-	void					signForm( Form form );
+	void					signForm( Form& form );
 };
 
 std::ostream&	operator << (std::ostream& os, const Bureaucrat& employee);

@@ -1,13 +1,13 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm( void ) : AForm("presidential pardon form", 25, 5),
+PresidentialPardonForm::PresidentialPardonForm( void ) : Form("presidential pardon form", 25, 5),
 	_target("the intern")
 {
 
 }
 
 
-PresidentialPardonForm::PresidentialPardonForm( std::string const target ) : AForm("presidential pardon form", 25, 5),
+PresidentialPardonForm::PresidentialPardonForm( std::string const target ) : Form("presidential pardon form", 25, 5),
 	_target(target)
 {
 
@@ -20,7 +20,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 }
 
 
-PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const& other ) : AForm( other.getName(), other.getSignatureGrade(), other.getExecutionGrade() ),
+PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const& other ) : Form( other.getName(), other.getSignatureGrade(), other.getExecutionGrade() ),
 	_target(other.getTarget())
 {
 	if (other.getIsSigned())
@@ -52,13 +52,7 @@ std::string	PresidentialPardonForm::getTarget( void ) const
 }
 
 
-void	PresidentialPardonForm::beSigned( Bureaucrat const& employee )
-{
-	this->AForm::beSigned(employee);
-}
-
-
-void	PresidentialPardonForm::execute(Bureaucrat const& executor) const
+bool	PresidentialPardonForm::execute(Bureaucrat const& executor) const
 {
 	try {
 		if (!this->getIsSigned())
@@ -69,14 +63,19 @@ void	PresidentialPardonForm::execute(Bureaucrat const& executor) const
 				if (executor.getGrade() > this->getExecutionGrade())
 					throw BureauException("PresidentialPardonForm::GradeTooLowException");
 				else
+				{
 					this->forgive();
+					return (1);
+				}
 			}
 			catch (BureauException& e) {
 				std::cerr << e.what() << std::endl;
+				return (0);
 			}
 		}
 	}
 	catch (BureauException& e) {
 		std::cerr << e.what() << std::endl;
+		return (0);
 	}
 }

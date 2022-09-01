@@ -89,6 +89,32 @@ void	Form::beSigned( Bureaucrat const& employee )
 }
 
 
+bool	Form::execute(Bureaucrat const& executor) const
+{
+	try {
+		if (!this->getIsSigned())
+			throw BureauException("Form::SignatureException");
+		else
+		{
+			try {
+				if (executor.getGrade() > this->getExecutionGrade())
+					throw BureauException("Form::GradeTooLowException");
+				else
+					return (1);
+			}
+			catch (BureauException& e) {
+				std::cerr << e.what() << std::endl;
+				return (0);
+			}
+		}
+	}
+	catch (BureauException& e) {
+		std::cerr << e.what() << std::endl;
+		return (0);
+	}
+}
+
+
 std::ostream&	operator << (std::ostream& os, const Form& form)
 {
 	os << "Form: " << form.getName() << ", grade for signature: " << form.getSignatureGrade();

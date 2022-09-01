@@ -12,7 +12,7 @@ class Form
 {
 private:
 	std::string const		_name;
-	static bool				_isSigned;
+	bool					_isSigned;
 	int	const				_signatureGrade;
 	int	const				_executionGrade;
 
@@ -28,6 +28,7 @@ public:
 	int						getSignatureGrade( void ) const;
 	int						getExecutionGrade( void ) const;
 	bool					getIsSigned( void ) const;
+	void					setSignature( void );
 
 	void					beSigned( Bureaucrat const& employee );
 };
