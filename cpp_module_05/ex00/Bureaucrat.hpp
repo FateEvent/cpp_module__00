@@ -23,8 +23,8 @@ public:
 	int						getGrade( void ) const;
 	void					promote( void );
 	void					demote( void );
-
-	friend std::ostream&	operator << (std::ostream& os, const Bureaucrat& employee);
 };
+
+std::ostream&	operator << (std::ostream& os, const Bureaucrat& employee);
 
 #endif

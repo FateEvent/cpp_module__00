@@ -21,10 +21,12 @@ public:
 	ShrubberyCreationForm( std::string const target );
 	ShrubberyCreationForm( ShrubberyCreationForm const& other );
 	~ShrubberyCreationForm( void );
-
 	std::string				getTarget( void ) const;
-
-	friend std::ostream&	operator << (std::ostream& os, const ShrubberyCreationForm& form);
+	int						plantingTrees( void ) const;
+	virtual void			beSigned( Bureaucrat const& employee );
+	virtual void			execute( Bureaucrat const& executor ) const;
 };
+
+std::ostream&	operator << (std::ostream& os, const ShrubberyCreationForm& form);
 
 #endif

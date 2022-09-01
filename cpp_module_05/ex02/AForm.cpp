@@ -17,24 +17,18 @@ AForm::AForm( std::string const name, int signatureGrade, int executionGrade ) :
 			throw BureauException("Form::GradeTooHighException");
 		else if (signatureGrade > 150)
 			throw BureauException("Form::GradeTooLowException");
-		else
-			_signatureGrade = signatureGrade;
 	}
 	catch (BureauException& e) {
 		std::cerr << e.what() << std::endl;
-		_signatureGrade = 150;
 	}
 	try {
 		if (executionGrade < 1)
 			throw BureauException("Form::GradeTooHighException");
 		else if (executionGrade > 150)
 			throw BureauException("Form::GradeTooLowException");
-		else
-			_executionGrade = executionGrade;
 	}
 	catch (BureauException& e) {
 		std::cerr << e.what() << std::endl;
-		_executionGrade = 150;
 	}
 }
 
@@ -86,16 +80,13 @@ AForm&	AForm::operator = ( const AForm& other )
 {
 	if (this == &other)
 		return (*this);
-	AForm	form;
-
-	form._signatureGrade = other._signatureGrade;
-	form._executionGrade = other._executionGrade;
-	*this = form;
+	std::cout << "It's not possible to cross out elements from a form." << std::endl;
+	std::cout << "Please, print a new proper and fresh form. Thank you." << std::endl;
 	return (*this);
 }
 
 
-void	AForm::beSigned( Bureaucrat& employee )
+void	AForm::beSigned( Bureaucrat const& employee )
 {
 	try {
 		if (employee.getGrade() > this->getSignatureGrade())

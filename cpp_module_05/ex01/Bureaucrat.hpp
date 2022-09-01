@@ -27,8 +27,8 @@ public:
 	void					promote( void );
 	void					demote( void );
 	void					signForm( Form form );
-
-	friend std::ostream&	operator << (std::ostream& os, const Bureaucrat& employee);
 };
+
+std::ostream&	operator << (std::ostream& os, const Bureaucrat& employee);
 
 #endif

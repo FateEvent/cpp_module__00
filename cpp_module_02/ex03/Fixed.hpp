@@ -17,7 +17,6 @@ public:
     Fixed( float const num );
     int                     toInt( void ) const;
     float                   toFloat( void ) const;
-    friend std::ostream&    operator << (std::ostream& os, const Fixed& num);
 
     // Comparison Operators
     bool                    operator>(Fixed fixed)const;
@@ -49,5 +48,7 @@ private:
     int                     _value;
     static const int        _bits;
 };
+
+std::ostream&	operator << (std::ostream& os, const Fixed& num);
 
 #endif

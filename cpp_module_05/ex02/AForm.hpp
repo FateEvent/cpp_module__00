@@ -13,8 +13,8 @@ class AForm
 private:
 	std::string const		_name;
 	static bool				_isSigned;
-	int						_signatureGrade;
-	int						_executionGrade;
+	int	const				_signatureGrade;
+	int	const				_executionGrade;
 
 	AForm&					operator = ( const AForm &other );
 
@@ -30,9 +30,10 @@ public:
 	bool					getIsSigned( void ) const;
 	void					setSignature( void );
 
-	void					beSigned( Bureaucrat& employee );
-
-	friend std::ostream&	operator << (std::ostream& os, const AForm& form);
+	virtual void			beSigned( Bureaucrat const& employee );
+	virtual void			execute( Bureaucrat const& executor ) const = 0;
 };
+
+std::ostream&	operator << (std::ostream& os, const AForm& form);
 
 #endif

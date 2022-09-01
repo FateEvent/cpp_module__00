@@ -1,7 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("shrubbery creation form", 145, 137),
-	_target("mayor's garden")
+	_target("the intern")
 {
 
 }
@@ -49,4 +49,34 @@ std::ostream&	operator << (std::ostream& os, const ShrubberyCreationForm& form)
 std::string	ShrubberyCreationForm::getTarget( void ) const
 {
 	return (this->_target);
+}
+
+
+void	ShrubberyCreationForm::beSigned( Bureaucrat const& employee )
+{
+	this->AForm::beSigned(employee);
+}
+
+
+void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
+{
+	try {
+		if (!this->getIsSigned())
+			throw BureauException("ShrubberyCreationForm::SignatureException");
+		else
+		{
+			try {
+				if (executor.getGrade() > this->getExecutionGrade())
+					throw BureauException("ShrubberyCreationForm::GradeTooLowException");
+				else
+					this->plantingTrees();
+			}
+			catch (BureauException& e) {
+				std::cerr << e.what() << std::endl;
+			}
+		}
+	}
+	catch (BureauException& e) {
+		std::cerr << e.what() << std::endl;
+	}
 }

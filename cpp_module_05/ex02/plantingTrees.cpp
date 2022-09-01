@@ -1,8 +1,8 @@
 #include "ShrubberyCreationForm.hpp"
 
-int	plantingTrees( std::string target )
+int	ShrubberyCreationForm::plantingTrees( void ) const
 {
-	std::string		filename(target + "_shrubbery");
+	std::string		filename(this->_target + "_shrubbery");
 	std::ofstream	outFlux(filename);
 	std::string		buffer;
 	bool			light_switch(true);

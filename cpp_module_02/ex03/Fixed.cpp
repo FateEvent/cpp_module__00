@@ -23,22 +23,22 @@ Fixed::~Fixed( void )
 
 Fixed&  Fixed::operator = (Fixed const & other) throw ()
 {
-    if (this == & other)
-        return (*this);
-    this->_value = other._value;
-    return *this;
+	if (this == & other)
+		return (*this);
+	this->_value = other._value;
+	return *this;
 }
 
 
 int	Fixed::getRawBits( void ) const
 {
-    return (this->_value);
+	return (this->_value);
 }
 
 
 void	Fixed::setRawBits( int const raw )
 {
-    this->_value = raw;
+	this->_value = raw;
 }
 
 
@@ -48,13 +48,13 @@ void	Fixed::setRawBits( int const raw )
 
 Fixed::Fixed( int const num )
 {
-    _value = roundf(num << this->_bits);
+	_value = roundf(num << this->_bits);
 }
 
 
 Fixed::Fixed( float const num )
 {
-    _value = roundf((float)(num * (1 << this->_bits)));
+	_value = roundf((float)(num * (1 << this->_bits)));
 }
 
 
@@ -64,20 +64,19 @@ Fixed::Fixed( float const num )
 
 int Fixed::toInt( void ) const
 {
-    return (this->_value >> this->_bits);
+	return (this->_value >> this->_bits);
 }
 
 
 float	Fixed::toFloat( void ) const
 {
-    return ((float)this->_value / (float)(1 << this->_bits));
+	return ((float)this->_value / (float)(1 << this->_bits));
 }
 
 
 std::ostream&	operator << (std::ostream& os, const Fixed& num)
 {
-    os << num.toFloat();
-    return os;
+	return (os << num.toFloat());
 }
 
 

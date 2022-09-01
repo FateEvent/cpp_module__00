@@ -45,9 +45,9 @@ float	Point::getY( void ) const
 }
 
 
-std::ostream&	operator << (std::ostream& os, const Point& val)
+std::ostream&	operator << (std::ostream& os, const Point& value)
 {
-	os << "[" << val.getX() << ", " << val.getY() << "]";
+	os << "[" << value.getX() << ", " << value.getY() << "]";
 	return os;
 }
 

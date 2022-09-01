@@ -23,10 +23,10 @@ public:
 	Point	operator+(Point point) const;
 	Point	operator-(Point point) const;
 
-	friend std::ostream&	operator << (std::ostream& os, const Point& val);
 };
 
-bool	bsp( Point const a, Point const b, Point const c, Point const point);
-bool	isBetween(Point const a, Point const b, Point const p);
+std::ostream&	operator << (std::ostream& os, const Point& value);
+bool			bsp( Point const a, Point const b, Point const c, Point const point);
+bool			isBetween(Point const a, Point const b, Point const p);
 
 #endif

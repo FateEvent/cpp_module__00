@@ -5,7 +5,8 @@ CPP_EXTENSION = .cpp
 
 #		눈_눈			SOURCES			눈_눈
 
-FILES 	=	Bureaucrat BureauException AForm ShrubberyCreationForm main #RobotomyRequestForm PresidentialPardonForm main
+FILES 	=	Bureaucrat BureauException AForm ShrubberyCreationForm plantingTrees \
+			RobotomyRequestForm robotomize PresidentialPardonForm forgive main
 SRCS_FILES	+=	$(FILES)
 
 SRCS_FILES_EXT 		+= 	$(addsuffix $(CPP_EXTENSION), $(SRCS_FILES))
