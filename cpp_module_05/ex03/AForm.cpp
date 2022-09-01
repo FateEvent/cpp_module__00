@@ -1,13 +1,13 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form( void ) : _name("standard form"), _isSigned(0),
+AForm::AForm( void ) : _name("standard form"), _isSigned(0),
 	_signatureGrade(150), _executionGrade(150)
 {
 
 }
 
 
-Form::Form( std::string const name, int signatureGrade, int executionGrade ) : _name(name),
+AForm::AForm( std::string const name, int signatureGrade, int executionGrade ) : _name(name),
 	_isSigned(0), _signatureGrade(signatureGrade), _executionGrade(executionGrade)
 {
 	try {
@@ -22,50 +22,50 @@ Form::Form( std::string const name, int signatureGrade, int executionGrade ) : _
 }
 
 
-Form::~Form()
+AForm::~AForm()
 {
 
 }
 
 
-Form::Form( Form const& other ) : _name(other._name), _signatureGrade(other._signatureGrade),
+AForm::AForm( AForm const& other ) : _name(other._name), _signatureGrade(other._signatureGrade),
 	_executionGrade(other._executionGrade)
 {
 	_isSigned = other._isSigned;
 }
 
 
-std::string	Form::getName( void ) const
+std::string	AForm::getName( void ) const
 {
 	return (this->_name);
 }
 
 
-int	Form::getSignatureGrade( void ) const
+int	AForm::getSignatureGrade( void ) const
 {
 	return (this->_signatureGrade);
 }
 
 
-int	Form::getExecutionGrade( void ) const
+int	AForm::getExecutionGrade( void ) const
 {
 	return (this->_executionGrade);
 }
 
 
-bool	Form::getIsSigned( void ) const
+bool	AForm::getIsSigned( void ) const
 {
 	return (this->_isSigned);
 }
 
 
-void	Form::setSignature( void )
+void	AForm::setSignature( void )
 {
 	this->_isSigned = true;
 }
 
 
-Form&	Form::operator = ( const Form& other )
+AForm&	AForm::operator = ( const AForm& other )
 {
 	if (this == &other)
 		return (*this);
@@ -75,7 +75,7 @@ Form&	Form::operator = ( const Form& other )
 }
 
 
-void	Form::beSigned( Bureaucrat const& employee )
+void	AForm::beSigned( Bureaucrat const& employee )
 {
 	try {
 		if (employee.getGrade() > this->getSignatureGrade())
@@ -89,7 +89,7 @@ void	Form::beSigned( Bureaucrat const& employee )
 }
 
 
-bool	Form::execute(Bureaucrat const& executor) const
+bool	AForm::execute(Bureaucrat const& executor) const
 {
 	try {
 		if (!this->getIsSigned())
@@ -115,7 +115,7 @@ bool	Form::execute(Bureaucrat const& executor) const
 }
 
 
-std::ostream&	operator << (std::ostream& os, const Form& form)
+std::ostream&	operator << (std::ostream& os, const AForm& form)
 {
 	os << "Form: " << form.getName() << ", grade for signature: " << form.getSignatureGrade();
 	os << ", grade for execution: " << form.getExecutionGrade() << ", signed: " << form.getIsSigned() << std::endl;
