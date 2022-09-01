@@ -1,5 +1,5 @@
-#ifndef FORM_H
-# define FORM_H
+#ifndef AFORM_H
+# define AFORM_H
 
 # include <iostream>
 # include <string>
@@ -8,7 +8,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 private:
 	std::string const		_name;
@@ -16,22 +16,23 @@ private:
 	int						_signatureGrade;
 	int						_executionGrade;
 
-	Form&					operator = ( const Form &other );
+	AForm&					operator = ( const AForm &other );
 
 public:
-	Form( void );
-	Form( std::string const name, int signatureGrade, int executionGrade );
-	Form( Form const& other );
-	~Form( void );
+	AForm( void );
+	AForm( std::string const name, int signatureGrade, int executionGrade );
+	AForm( AForm const& other );
+	~AForm( void );
 
 	std::string				getName( void ) const;
 	int						getSignatureGrade( void ) const;
 	int						getExecutionGrade( void ) const;
 	bool					getIsSigned( void ) const;
+	void					setSignature( void );
 
 	void					beSigned( Bureaucrat& employee );
 
-	friend std::ostream&	operator << (std::ostream& os, const Form& form);
+	friend std::ostream&	operator << (std::ostream& os, const AForm& form);
 };
 
 #endif

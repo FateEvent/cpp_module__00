@@ -88,3 +88,18 @@ void	Bureaucrat::demote( void )
 		std::cerr << e.what() << std::endl;
 	}
 }
+
+
+void	Bureaucrat::signForm( AForm form )
+{
+	if (!form.getIsSigned())
+	{
+		form.beSigned( *this );
+		if (form.getIsSigned())
+			std::cout << this->getName() << " signed the " << form.getName() << std::endl;
+		else
+			std::cout << this->getName() << " couldn't sign the " << form.getName() << std::endl;
+	}
+	else
+		std::cout << "The " << form.getName() << " is already signed" << std::endl;
+}

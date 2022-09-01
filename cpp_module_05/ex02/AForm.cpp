@@ -1,15 +1,15 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-bool	Form::_isSigned = 0;
+bool	AForm::_isSigned = 0;
 
-Form::Form( void ) : _name("standard form"),
+AForm::AForm( void ) : _name("standard form"),
 	_signatureGrade(150), _executionGrade(150)
 {
 
 }
 
 
-Form::Form( std::string const name, int signatureGrade, int executionGrade ) : _name(name),
+AForm::AForm( std::string const name, int signatureGrade, int executionGrade ) : _name(name),
 	_signatureGrade(signatureGrade), _executionGrade(executionGrade)
 {
 	try {
@@ -39,48 +39,54 @@ Form::Form( std::string const name, int signatureGrade, int executionGrade ) : _
 }
 
 
-Form::~Form()
+AForm::~AForm()
 {
 
 }
 
 
-Form::Form( Form const& other ) : _name(other._name), _signatureGrade(other._signatureGrade),
+AForm::AForm( AForm const& other ) : _name(other._name), _signatureGrade(other._signatureGrade),
 	_executionGrade(other._executionGrade)
 {
 	_isSigned = other._isSigned;
 }
 
 
-std::string	Form::getName( void ) const
+std::string	AForm::getName( void ) const
 {
 	return (this->_name);
 }
 
 
-int	Form::getSignatureGrade( void ) const
+int	AForm::getSignatureGrade( void ) const
 {
 	return (this->_signatureGrade);
 }
 
 
-int	Form::getExecutionGrade( void ) const
+int	AForm::getExecutionGrade( void ) const
 {
 	return (this->_executionGrade);
 }
 
 
-bool	Form::getIsSigned( void ) const
+bool	AForm::getIsSigned( void ) const
 {
 	return (this->_isSigned);
 }
 
 
-Form&	Form::operator = ( const Form& other )
+void	AForm::setSignature( void )
+{
+	this->_isSigned = true;
+}
+
+
+AForm&	AForm::operator = ( const AForm& other )
 {
 	if (this == &other)
 		return (*this);
-	Form	form;
+	AForm	form;
 
 	form._signatureGrade = other._signatureGrade;
 	form._executionGrade = other._executionGrade;
@@ -89,7 +95,7 @@ Form&	Form::operator = ( const Form& other )
 }
 
 
-void	Form::beSigned( Bureaucrat& employee )
+void	AForm::beSigned( Bureaucrat& employee )
 {
 	try {
 		if (employee.getGrade() > this->getSignatureGrade())
@@ -103,7 +109,7 @@ void	Form::beSigned( Bureaucrat& employee )
 }
 
 
-std::ostream&	operator << (std::ostream& os, const Form& form)
+std::ostream&	operator << (std::ostream& os, const AForm& form)
 {
 	os << "Form: " << form.getName() << ", grade for signature: " << form.getSignatureGrade();
 	os << ", grade for execution: " << form.getExecutionGrade() << ", signed: " << form.getIsSigned() << std::endl;

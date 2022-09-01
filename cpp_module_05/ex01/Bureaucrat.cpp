@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat( void ) : _name("C3PO, the protocol droid"), _grade(150)
 {
-
+	std::cout << _name << " has been hired with a grade of " << _grade << std::endl;
 }
 
 Bureaucrat::Bureaucrat( std::string const name, int grade ) : _name(name)
@@ -19,12 +19,13 @@ Bureaucrat::Bureaucrat( std::string const name, int grade ) : _name(name)
 		std::cerr << e.what() << std::endl;
 		_grade = 150;
 	}
+	std::cout << _name << " has been hired with a grade of " << _grade << std::endl;
 }
 
 
 Bureaucrat::Bureaucrat( Bureaucrat const& other ) : _name(other._name), _grade(other._grade)
 {
-
+	std::cout << _name << " has been hired with a grade of " << _grade << std::endl;
 }
 
 
@@ -75,6 +76,20 @@ void	Bureaucrat::promote( void )
 }
 
 
+void	Bureaucrat::demote( void )
+{
+	try {
+		if (_grade + 1 > 150)
+			throw BureauException("Bureaucrat::GradeTooLowException");
+		else
+			this->_grade++;
+	}
+	catch (BureauException& e) {
+		std::cerr << e.what() << std::endl;
+	}
+}
+
+
 void	Bureaucrat::signForm( Form form )
 {
 	if (!form.getIsSigned())
@@ -87,18 +102,4 @@ void	Bureaucrat::signForm( Form form )
 	}
 	else
 		std::cout << "The " << form.getName() << " is already signed" << std::endl;
-}
-
-
-void	Bureaucrat::demote( void )
-{
-	try {
-		if (_grade + 1 > 150)
-			throw BureauException("Bureaucrat::GradeTooLowException");
-		else
-			this->_grade++;
-	}
-	catch (BureauException& e) {
-		std::cerr << e.what() << std::endl;
-	}
 }

@@ -25,8 +25,8 @@ int main(int ac, char *av[])
 	}
 	while (getline(inFlux, buffer))
 	{
-		std::string::size_type  i(0);
-		std::string::size_type  pos = buffer.find(s1);
+		std::string::size_type	i(0);
+		std::string::size_type	pos = buffer.find(s1);
 		while (i < pos && buffer[i] != '\0')
 		{
 			outFlux.put(buffer[i]);

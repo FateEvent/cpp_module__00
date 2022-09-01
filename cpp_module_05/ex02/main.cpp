@@ -1,24 +1,22 @@
-#include <iostream>
-#include <string>
-#include <exception>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int	main()
 {
-	Bureaucrat	larry("Larry", 101);
+//	Bureaucrat	larry("Larry", 101);
 	Bureaucrat	jean("Jean", 56);
 	Bureaucrat	none("Chief", 1);
 
-	Form	form;
-	Form	form2(form);
-	Form	b32( "B32 form", 100, 67 );
-	Form	b45( b32 );
+	AForm	form;
+	AForm	form2(form);
+	AForm	b32( "B32 form", 100, 67 );
+	AForm	b45( b32 );
 	jean.signForm(b32);
 	std::cout << b32.getIsSigned() << std::endl;
-	larry.signForm(b45);
+//	larry.signForm(b45);
 	none.signForm(b32);
-	none.signForm(b45);
+//	none.signForm(b45);
 
 	std::cout << form2 << "\n" << form2.getName() << std::endl;
 }
