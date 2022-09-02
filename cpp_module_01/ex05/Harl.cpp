@@ -2,38 +2,42 @@
 
 void	Harl::debug( void )
 {
-	std::cout << "[ DEBUG ]" << std::endl;
-	std::cout << "\"I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger." << std::endl;
-	std::cout << "I really do!\"" << std::endl;
-	std::cout << std::endl;
+	std::cout
+		<< "[ DEBUG ]\n"
+		<< "\"I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger.\n"
+		<< "I really do!\"\n"
+		<< std::endl;
 }
 
 
 void	Harl::info( void )
 {
-	std::cout << "[ INFO ]" << std::endl;
-	std::cout << "\"I cannot believe adding extra bacon costs more money." << std::endl;
-	std::cout << "You didn't put enough bacon in my burger!" << std::endl;
-	std::cout << "If you did, I wouldn't be asking for more!\"" << std::endl;
-	std::cout << std::endl;
+	std::cout
+		<< "[ INFO ]\n"
+		<< "\"I cannot believe adding extra bacon costs more money.\n"
+		<< "You didn't put enough bacon in my burger!\n"
+		<< "If you did, I wouldn't be asking for more!\"\n"
+		<< std::endl;
 }
 
 
 void	Harl::warning( void )
 {
-	std::cout << "[ WARNING ]" << std::endl;
-	std::cout << "\"I think I deserve to have some extra bacon for free." << std::endl;
-	std::cout << "I've been coming for years whereas you started working here since last month.\"" << std::endl;
-	std::cout << std::endl;
+	std::cout
+		<< "[ WARNING ]\n"
+		<< "\"I think I deserve to have some extra bacon for free.\n"
+		<< "I've been coming for years whereas you started working here since last month.\"\n"
+		<< std::endl;
 }
 
 
 void	Harl::error( void )
 {
-	std::cout << "[ ERROR ]" << std::endl;
-	std::cout << "\"This is unacceptable!" << std::endl;
-	std::cout << "I want to speak to the manager now.\"" << std::endl;
-	std::cout << std::endl;
+	std::cout
+		<< "[ ERROR ]\n"
+		<< "\"This is unacceptable!\n"
+		<< "I want to speak to the manager now.\"\n"
+		<< std::endl;
 }
 
 
@@ -59,10 +63,11 @@ void	Harl::complain( std::string level )
 		(harl.*d)();
 	else
 	{
-		std::cout << "[ Invalid entry ]:" << std::endl;
-		std::cout << "\"There are four levels, four damned levels!" << std::endl;
-		std::cout << "It's not like you can enter anything that passes through your mind!" << std::endl;
-		std::cout << "These levels are \"error\", \"warning\", \"info\" and \"debug\"!\"" << std::endl;
-		std::cout << std::endl;
+		std::cout
+			<< "[ Invalid entry ]:\n"
+			<< "\"There are four levels, four damned levels!\n"
+			<< "It's not like you can enter anything that passes through your mind!\n"
+			<< "These levels are \"error\", \"warning\", \"info\" and \"debug\"!\"\n"
+			<< std::endl;
 	}
 }
