@@ -22,7 +22,7 @@ public:
 	AForm( void );
 	AForm( std::string const name, int signatureGrade, int executionGrade );
 	AForm( AForm const& other );
-	~AForm( void );
+	virtual					~AForm( void );
 
 	std::string				getName( void ) const;
 	int						getSignatureGrade( void ) const;

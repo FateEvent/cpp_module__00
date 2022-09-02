@@ -12,6 +12,8 @@ int	ShrubberyCreationForm::plantingTrees( void ) const
 		std::cerr << "Error: impossible to open the file." << std::endl;
 		return (1);
 	}
+	outFlux << "                                                                                          " << std::endl;
+	outFlux << "                                                                                          " << std::endl;
 	outFlux << "                   a                                            a                         " << std::endl;
 	outFlux << "                  a a                                          a a                        " << std::endl;
 	outFlux << "                 a a a                                        a a a                       " << std::endl;
@@ -30,5 +32,6 @@ int	ShrubberyCreationForm::plantingTrees( void ) const
 	outFlux << "                  a a                                         a a a                       " << std::endl;
 	outFlux << "                  a a                                         a a a                       " << std::endl;
 	outFlux << "                 a a a                                        a a a                       " << std::endl;
+	outFlux << "                                                                                          " << std::endl;
 	return (0);
 }
