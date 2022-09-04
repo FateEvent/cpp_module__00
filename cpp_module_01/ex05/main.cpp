@@ -11,5 +11,6 @@ int main()
 	harl.complain("DEBUG");
 	harl.complain("boycott");
 	harl.complain("WARNING");
+	harl.complain("ERROR");
 	return 0;
 }
