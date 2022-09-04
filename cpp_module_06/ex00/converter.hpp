@@ -1,5 +1,5 @@
-#ifndef CONVERT_H
-# define CONVERT_H
+#ifndef CONVERTER_H
+# define CONVERTER_H
 
 # include <string>
 # include <cctype>
