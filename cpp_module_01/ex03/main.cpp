@@ -19,6 +19,10 @@ int main()
 		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();
+		Weapon uzi("uzi");
+		jim.setWeapon(uzi);
+		std::cout << " ratatatatatat I'm a gangster, now! ratatat rat tat" << std::endl; 
+		jim.attack();
 	}
 	return (0);
 }

@@ -5,6 +5,11 @@ Zombie::Zombie(std::string name) : _name(name)
 	std::cout << this->_name << " has been transformed into a zombie." << std::endl;
 }
 
+Zombie::Zombie( void ) : _name("The unknown soldier")
+{
+	std::cout << this->_name << " has been transformed into a zombie." << std::endl;
+}
+
 Zombie::~Zombie( void )
 {
 	std::cout << this->_name << " has been shot to death." << std::endl;

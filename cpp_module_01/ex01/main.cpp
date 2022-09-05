@@ -2,7 +2,7 @@
 
 int main()
 {
-	Zombie			*horde;
+	Zombie				*horde;
 	unsigned int	i;
 
 	i = 0;

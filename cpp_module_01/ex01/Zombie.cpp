@@ -6,7 +6,7 @@ Zombie::Zombie(std::string name) : _name(name)
 }
 
 
-Zombie::Zombie( void ) : _name("no name")
+Zombie::Zombie( void ) : _name("A horse with no name")
 {
 	std::cout << this->_name << " has been transformed into a zombie." << std::endl;
 }
