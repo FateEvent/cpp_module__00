@@ -28,5 +28,12 @@ int main( void ) {
 	bsp( g, h, i, pt3);
 	bsp( l, m, n, pt4);
 
+	Point	x = d;
+	std::cout << x << std::endl;
+
+//	Point	y;		// I made it impossible to use the '=' operator since the
+//	y = l;			// data members of the function are declared as constant
+//	std::cout << y << std::endl;
+
 	return (0);
 }

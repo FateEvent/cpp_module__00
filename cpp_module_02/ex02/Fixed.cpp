@@ -124,27 +124,29 @@ bool	Fixed::operator!=(Fixed fixed) const
 
 
 // Overloaded Arithmetic Operators
-float	Fixed::operator+(Fixed fixed) const
+float	Fixed::operator + (Fixed fixed) const
 {
 	return (this->toFloat() + fixed.toFloat());
 }
 
 
-float	Fixed::operator-(Fixed fixed) const
+float	Fixed::operator - (Fixed fixed) const
 {
 	return (this->toFloat() - fixed.toFloat());
 }
 
 
-float	Fixed::operator*(Fixed fixed) const
+float	Fixed::operator * (Fixed fixed) const
 {
 	return (this->toFloat() * fixed.toFloat());
 }
 
 
-float	Fixed::operator/(Fixed fixed) const
+float	Fixed::operator / (Fixed fixed) const
 {
-	return (this->toFloat() / fixed.toFloat());
+	if (fixed.getRawBits() != 0)
+		return (this->toFloat() / fixed.toFloat());
+	return (0);
 }
 
 

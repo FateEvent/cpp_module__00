@@ -21,8 +21,8 @@ Point::Point( Point const& cpy ) : _x(cpy._x), _y(cpy._y)
 Point&	Point::operator = ( Point const & cpy ) throw ()
 {
 	std::cout << "Point copy assignment operator called." << std::endl;
-	std::cout << "It's impossible to assign a constant " << std::endl;
-	std::cout << "member after having been initialised" << std::endl;
+	std::cout << "It's impossible to assign a value to a" << std::endl;
+	std::cout << "constant variable after initialisation." << std::endl;
 	return (*this);
 }
 
