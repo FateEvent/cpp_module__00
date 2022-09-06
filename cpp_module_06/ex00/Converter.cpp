@@ -2,14 +2,43 @@
 
 Converter::Converter( std::string const& input )
 {
-	switch (typeDetecter(input)) {
-			case CHAR:
-				Literals	literals(input.at(0));
-			case default:
-				;
-		}
+	Literals	literals;
 
-	
+	switch (typeDetecter(input)) {
+		case UNKNOWN:
+			std::cout << "Unknown input" << std::endl;
+			break ;
+		case CHAR:
+			literals.setLiteral(input.at(0));
+			break ;
+		case INT:
+			literals.setLiteral(atoi(input.c_str()));
+			break ;
+		case FLOAT:
+			literals.setLiteral(static_cast<float>(std::strtod(input.c_str(), NULL)));
+			break ;
+		case DOUBLE:
+			literals.setLiteral(std::strtod(input.c_str(), NULL));
+			break;
+		case NAN_F:
+			literals.setLiteral(std::numeric_limits<float>::quiet_NaN());
+			break;
+		case INF_F:
+			literals.setLiteral(std::numeric_limits<float>::infinity());
+			break;
+		case N_INF_F:
+			literals.setLiteral(-std::numeric_limits<float>::infinity());
+			break;
+		case NAN_D:
+			literals.setLiteral(std::numeric_limits<double>::quiet_NaN());
+			break;
+		case INF_D:
+			literals.setLiteral(std::numeric_limits<double>::infinity());
+			break;
+		case NEG_INF_D:
+			literals.setLiteral(-std::numeric_limits<double>::infinity());
+			break;
+	}
 }
 
 enum type	Converter::typeDetecter(std::string const& str)
@@ -17,15 +46,15 @@ enum type	Converter::typeDetecter(std::string const& str)
 	if (str == "-inff")
 		return (N_INF_F);
 	if (str == "+inff")
-		return (P_INF_F);
+		return (INF_F);
 	if (str == "nanf")
-		return (NANF);
+		return (NAN_F);
 	if (str == "-inf")
-		return (NEG_INF);
+		return (NEG_INF_D);
 	if (str == "+inf")
-		return (POS_INF);
+		return (INF_D);
 	if (str == "nan")
-		return (_NAN);
+		return (NAN_D);
 
 	unsigned	i;
 	long	n = 0;
@@ -80,20 +109,73 @@ enum type	Converter::typeDetecter(std::string const& str)
 }
 
 
-Converter::Literals::Literals( char a ) : _a(a), _i(static_cast<int>(a)),
-	_f(static_cast<float>(a)), _d(static_cast<double>(a))
+Converter::Literals::Literals( void ) : _a(static_cast<char>(0)), _i(0),
+	_f(static_cast<float>(0)), _d(static_cast<double>(0))
 {
+
+}
+
+
+void	Converter::Literals::setLiteral( char a )
+{
+	_a = a;
 	std::cout << "char: " << _a << std::endl;
 
+	_i = static_cast<int>(a);
 	std::cout << "int: " << _i << std::endl;
-	
+
+	_f = static_cast<float>(a);
 	std::cout << "float: " << _f << 'f' << std::endl;
 
+	_d = static_cast<double>(a);
 	std::cout << "double: " << _d << std::endl;
 }
 
 
-Converter::Literals::Literals( int i ) : _i(i), _f(static_cast<float>(i)), _d(static_cast<double>(i))
+void	Converter::Literals::setLiteral( int i )
+{
+	if (i >= 32 && i <= 126) {
+		_a = static_cast<char>(i);
+		std::cout << "char: " << _a << std::endl;
+	} else if (i > std::numeric_limits<char>::max() || i < std::numeric_limits<char>::min()) {
+		std::cout << "char: Overflow" << std::endl;
+	} else {
+		std::cout << "char: Non displayable" << std::endl;
+	}
+
+	_i = i;
+	std::cout << "int: " << _i << std::endl;
+
+	_f = static_cast<float>(i);
+	std::cout << "float: " << _f << 'f' << std::endl;
+
+	_d = static_cast<double>(i);
+	std::cout << "double: " << _d << std::endl;
+}
+/*
+void	Converter::Literals::setLiteral( float f )
+{
+	char	*out;
+	
+	_a = static_cast<char>(i);
+		std::cout << "char: " << c << std::endl;
+	} else if (i > std::numeric_limits<char>::max() || i < std::numeric_limits<char>::min()) {
+		std::cout << "char: Overflow" << std::endl;
+	} else {
+		std::cout << "char: Non displayable" << std::endl;
+	}
+
+	_i = i;
+	std::cout << "int: " << _i << std::endl;
+
+	_f = static_cast<float>(i);
+	std::cout << "float: " << _f << 'f' << std::endl;
+
+	_d = static_cast<double>(i);
+	std::cout << "double: " << _d << std::endl;
+}
+
+void	Converter::Literals::setLiteral( double d )
 {
 	if (i >= 32 && i <= 126) {
 		char c = static_cast<char>(i);
@@ -104,9 +186,13 @@ Converter::Literals::Literals( int i ) : _i(i), _f(static_cast<float>(i)), _d(st
 		std::cout << "char: Non displayable" << std::endl;
 	}
 
+	_i = i;
 	std::cout << "int: " << _i << std::endl;
 
+	_f = static_cast<float>(i);
 	std::cout << "float: " << _f << 'f' << std::endl;
 
+	_d = static_cast<double>(i);
 	std::cout << "double: " << _d << std::endl;
 }
+*/

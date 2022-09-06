@@ -1,11 +1,10 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap( void ) : ClapTrap("DiamC3P0_clap_name")
+DiamondTrap::DiamondTrap( void ) : ClapTrap("DiamC3P0_clap_name"), _name("default DiamC3P0")
 {
 	_hitPoints = FragTrap::_hitPoints;
 	_energyPoints = ScavTrap::_energyPoints;
 	_attackDamage = FragTrap::_attackDamage;
-	this->_name = "default DiamC3P0";
 	std::cout << "The DiamondTrap Mountain " << this->_name << " has risen from the depths of the RoboCorps factories!" << std::endl;
 }
 
@@ -40,7 +39,7 @@ DiamondTrap &   DiamondTrap::operator = ( const DiamondTrap &other )
 	_energyPoints = other._energyPoints;
 	_attackDamage = other._attackDamage;
 	std::cout << "DiamondTrap " << _name << ": copy operator" << std::endl;
-	return *this;
+	return (*this);
 }
 
 

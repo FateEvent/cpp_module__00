@@ -21,7 +21,7 @@ public:
     int         getEnergyPoints( void );
     int         getAttackDamage( void );
 
-protected:
+private:
 	std::string _name;
 	int         _hitPoints;
 	int         _energyPoints;

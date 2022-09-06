@@ -15,41 +15,41 @@ int main(int argc, char **argv) {
 	} else {
 		detected_type = UNKNOWN;
 	}
-	switch (detected_type) {
-		case UNKNOWN:
-		std::cout << "Unknown input" << std::endl;
-		break;
-		case CHAR:
-		convert(input.at(0));
-		break;
-		case INT:
-		convert(atoi(input.c_str()));
-		break;
-		case FLOAT:
-		convert(static_cast<float>(std::strtod(input.c_str(), NULL)));
-		break;
-		case DOUBLE:
-		convert(std::strtod(input.c_str(), NULL));
-		break;
-		case NAN_FLOAT:
-		convert(std::numeric_limits<float>::quiet_NaN());
-		break;
-		case INF_FLOAT:
-		convert(std::numeric_limits<float>::infinity());
-		break;
-		case N_INF_FLOAT:
-		convert(-std::numeric_limits<float>::infinity());
-		break;
-		case NAN_DOUBLE:
-		convert(std::numeric_limits<double>::quiet_NaN());
-		break;
-		case INF_DOUBLE:
-		convert(std::numeric_limits<double>::infinity());
-		break;
-		case N_INF_DOUBLE:
-		convert(-std::numeric_limits<double>::infinity());
-		break;
-	}
+		switch (detected_type) {
+			case UNKNOWN:
+			std::cout << "Unknown input" << std::endl;
+			break;
+			case CHAR:
+				convert(input.at(0));
+				break;
+			case INT:
+				convert(atoi(input.c_str()));
+				break;
+			case FLOAT:
+				convert(static_cast<float>(std::strtod(input.c_str(), NULL)));
+				break;
+			case DOUBLE:
+				convert(std::strtod(input.c_str(), NULL));
+				break;
+			case NAN_FLOAT:
+				convert(std::numeric_limits<float>::quiet_NaN());
+				break;
+			case INF_FLOAT:
+				convert(std::numeric_limits<float>::infinity());
+				break;
+			case N_INF_FLOAT:
+				convert(-std::numeric_limits<float>::infinity());
+				break;
+			case NAN_DOUBLE:
+				convert(std::numeric_limits<double>::quiet_NaN());
+				break;
+			case INF_DOUBLE:
+				convert(std::numeric_limits<double>::infinity());
+				break;
+			case N_INF_DOUBLE:
+				convert(-std::numeric_limits<double>::infinity());
+				break;
+		}
 	}
 }
 

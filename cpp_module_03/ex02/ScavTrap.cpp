@@ -42,7 +42,7 @@ ScavTrap &  ScavTrap::operator = ( const ScavTrap &other )
 
 void    ScavTrap::attack( const std::string& target )
 {
-    if (this->_energyPoints)
+    if (this->_energyPoints && this->_hitPoints)
     {
         std::cout << "The ScavTrap Stronghold " << this->_name << " attacks " << target;
         std::cout << " causing " << this->_attackDamage << " points of damage." << std::endl;

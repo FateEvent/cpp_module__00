@@ -11,7 +11,8 @@ int main()
     fab.attack( "Tania" );
     tan.beRepaired(5);
     red.attack( "Fabio" );
-    none.takeDamage(10);
+    none.takeDamage(100);
+    none.beRepaired(10);
 
     return (0);
 }

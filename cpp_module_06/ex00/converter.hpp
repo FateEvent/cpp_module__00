@@ -8,23 +8,24 @@
 # include <cstdlib>
 # include <limits>
 
-class	Converter
-{
-private:
-	enum type {
+enum type {
 		UNKNOWN,
 		CHAR,
 		INT,
 		FLOAT,
 		N_INF_F,
-		P_INF_F,
-		NANF,
+		INF_F,
+		NAN_F,
 		DOUBLE,
-		NEG_INF,
-		POS_INF,
-		_NAN
+		NEG_INF_D,
+		INF_D,
+		NAN_D
 	};
 
+class	Converter
+{
+private:
+	
 public:
 	class Literals
 	{
@@ -35,14 +36,16 @@ public:
 		double	_d;
 
 	public:
-		Literals( char a );
-		Literals( int i );
+		Literals( void );
 		~Literals ( void ) {};
+		void	setLiteral( char a );
+		void	setLiteral( int i );
+		void	setLiteral( float f );
+		void	setLiteral( double d );
 	};
 
 	Converter( std::string const& input );
 	~Converter( void ) {};
-
 
 	enum type	typeDetecter(std::string const& str);
 };

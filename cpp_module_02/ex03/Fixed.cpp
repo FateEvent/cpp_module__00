@@ -26,7 +26,7 @@ Fixed&  Fixed::operator = (Fixed const & other) throw ()
 	if (this == & other)
 		return (*this);
 	this->_value = other._value;
-	return *this;
+	return (*this);
 }
 
 
