@@ -22,32 +22,15 @@ enum type {
 		NAN_D
 	};
 
-class	Converter
-{
-private:
-	
-public:
-	class Literals
-	{
-	private:
-		char		_a;
-		int			_i;
-		float		_f;
-		double	_d;
+Literals( void );
+~Literals ( void ) {};
+void	setLiteral( char a );
+void	setLiteral( int i );
+void	setLiteral( float f );
+void	setLiteral( double d );
 
-	public:
-		Literals( void );
-		~Literals ( void ) {};
-		void	setLiteral( char a );
-		void	setLiteral( int i );
-		void	setLiteral( float f );
-		void	setLiteral( double d );
-	};
+void	converter( std::string const& input );
 
-	Converter( std::string const& input );
-	~Converter( void ) {};
-
-	enum type	typeDetecter(std::string const& str);
-};
+enum type	typeDetecter(std::string const& str);
 
 #endif

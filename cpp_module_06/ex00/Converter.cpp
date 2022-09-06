@@ -1,9 +1,7 @@
 #include "Converter.hpp"
 
-Converter::Converter( std::string const& input )
+void	converter( std::string const& input )
 {
-	Literals	literals;
-
 	switch (typeDetecter(input)) {
 		case UNKNOWN:
 			std::cout << "Unknown input" << std::endl;
@@ -41,7 +39,7 @@ Converter::Converter( std::string const& input )
 	}
 }
 
-enum type	Converter::typeDetecter(std::string const& str)
+enum type	typeDetecter(std::string const& str)
 {
 	if (str == "-inff")
 		return (N_INF_F);
@@ -109,33 +107,34 @@ enum type	Converter::typeDetecter(std::string const& str)
 }
 
 
-Converter::Literals::Literals( void ) : _a(static_cast<char>(0)), _i(0),
+Literals::Literals( void ) : _a(static_cast<char>(0)), _i(0),
 	_f(static_cast<float>(0)), _d(static_cast<double>(0))
 {
 
 }
 
 
-void	Converter::Literals::setLiteral( char a )
+void	Literals::setLiteral( char a )
 {
-	_a = a;
 	std::cout << "char: " << _a << std::endl;
 
-	_i = static_cast<int>(a);
-	std::cout << "int: " << _i << std::endl;
+	int	i = static_cast<int>(a);
+	std::cout << "int: " << i << std::endl;
 
-	_f = static_cast<float>(a);
-	std::cout << "float: " << _f << 'f' << std::endl;
+	float	f = static_cast<float>(a);
+	std::cout << "float: " << f << 'f' << std::endl;
 
-	_d = static_cast<double>(a);
-	std::cout << "double: " << _d << std::endl;
+	double	d = static_cast<double>(a);
+	std::cout << "double: " << d << std::endl;
 }
 
 
-void	Converter::Literals::setLiteral( int i )
+void	Literals::setLiteral( int i )
 {
-	if (i >= 32 && i <= 126) {
-		_a = static_cast<char>(i);
+	if (i < 0) {
+		std::cout << "char: Impossible" << std::endl;
+	} else if (i >= 32 && i <= 126) {
+		char	a = static_cast<char>(i);
 		std::cout << "char: " << _a << std::endl;
 	} else if (i > std::numeric_limits<char>::max() || i < std::numeric_limits<char>::min()) {
 		std::cout << "char: Overflow" << std::endl;
@@ -152,30 +151,30 @@ void	Converter::Literals::setLiteral( int i )
 	_d = static_cast<double>(i);
 	std::cout << "double: " << _d << std::endl;
 }
-/*
-void	Converter::Literals::setLiteral( float f )
+
+void	Literals::setLiteral( float f )
 {
-	char	*out;
-	
-	_a = static_cast<char>(i);
-		std::cout << "char: " << c << std::endl;
-	} else if (i > std::numeric_limits<char>::max() || i < std::numeric_limits<char>::min()) {
+	if (f < 0)
+	if (f >= 32 && f <= 126) {
+		_a = static_cast<char>(f);
+		std::cout << "char: " << _a << std::endl;
+	} else if (f > std::numeric_limits<char>::max() || f < std::numeric_limits<char>::min()) {
 		std::cout << "char: Overflow" << std::endl;
 	} else {
 		std::cout << "char: Non displayable" << std::endl;
 	}
 
-	_i = i;
+	_i = static_cast<int>(f);
 	std::cout << "int: " << _i << std::endl;
 
-	_f = static_cast<float>(i);
+	_f = f;
 	std::cout << "float: " << _f << 'f' << std::endl;
 
-	_d = static_cast<double>(i);
+	_d = static_cast<double>(f);
 	std::cout << "double: " << _d << std::endl;
 }
 
-void	Converter::Literals::setLiteral( double d )
+void	Literals::setLiteral( double d )
 {
 	if (i >= 32 && i <= 126) {
 		char c = static_cast<char>(i);
@@ -195,4 +194,3 @@ void	Converter::Literals::setLiteral( double d )
 	_d = static_cast<double>(i);
 	std::cout << "double: " << _d << std::endl;
 }
-*/

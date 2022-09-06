@@ -18,9 +18,12 @@ DiamondTrap::DiamondTrap(std::string const name) : ClapTrap(name + "_clap_name")
 }
 
 
-DiamondTrap::DiamondTrap( const DiamondTrap &other ) : ClapTrap(other), FragTrap(other), ScavTrap(other), _name(other._name)
+DiamondTrap::DiamondTrap( const DiamondTrap &other ) : ClapTrap(other.getName() + "_clap_name"), _name(other._name)
 {
-    std::cout << "The DiamondTrap Mountain " << this->_name << " has risen from the depths of the RoboCorps factories!" << std::endl;
+	_hitPoints = FragTrap::_hitPoints;
+	_energyPoints = ScavTrap::_energyPoints;
+	_attackDamage = FragTrap::_attackDamage;
+  std::cout << "An upgraded version of the DiamondTrap Mountain " << this->_name << " has risen from the depths of the RoboCorps factories!" << std::endl;
 }
 
 
@@ -32,13 +35,9 @@ DiamondTrap::~DiamondTrap( void )
 
 DiamondTrap &   DiamondTrap::operator = ( const DiamondTrap &other )
 {
-	const ClapTrap& ct = other;
-	ClapTrap::_name = ct.getName();
+	ClapTrap::_name = other.getName();
 	_name = other._name;
-	_hitPoints = other._hitPoints;
-	_energyPoints = other._energyPoints;
-	_attackDamage = other._attackDamage;
-	std::cout << "DiamondTrap " << _name << ": copy operator" << std::endl;
+	std::cout << "DiamondTrap " << _name << ": copy assignment operator called" << std::endl;
 	return (*this);
 }
 

@@ -4,7 +4,7 @@
 
 int	main()
 {
-	Animal *arr[10];
+	Animal	*arr[10];
 
 	for (int i = 0; i < 5; i++)
 		arr[i] = new Dog();
@@ -18,6 +18,12 @@ int	main()
 
 	delete j;	//should not create a leak
 	delete k;
+
+	Cat	kittyPaw;
+
+//	kittyPaw._brain->setIdea( "food" );
+//	kittyPaw._brain->setIdea( "hugs" );
+//	kittyPaw._brain->displayIdeas();
 
 	return (0);
 }

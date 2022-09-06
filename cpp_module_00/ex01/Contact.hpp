@@ -13,28 +13,28 @@ class Contact
 	std::string	_lastName;
 	std::string	_nickname;
 	std::string	_darkestSecret;
-	int			_index;
+	int					_index;
 
 public:
 	Contact();
-	Contact		*addEntry();
-	void		displayEntry() const;
-	void		setPhoneNumber(std::string phoneNumber);
-	void		setFirstName(std::string firstName);
-	void		setLastName(std::string lastName);
-	void		setNickname(std::string nickname);
-	void		setDarkestSecret(std::string darkestSecret);
-	void		setIndex(int index);
+	Contact			*addEntry();
+	void				displayEntry() const;
+	void				setPhoneNumber(std::string phoneNumber);
+	void				setFirstName(std::string firstName);
+	void				setLastName(std::string lastName);
+	void				setNickname(std::string nickname);
+	void				setDarkestSecret(std::string darkestSecret);
+	void				setIndex(int index);
 	std::string	getPhoneNumber() const;
 	std::string	getFirstName() const;
-	int			getFirstNameLength() const;
+	int					getFirstNameLength() const;
 	std::string	getLastName() const;
-	int			getLastNameLength() const;
+	int					getLastNameLength() const;
 	std::string	getNickname() const;
-	int			getNicknameLength() const;
+	int					getNicknameLength() const;
 	std::string	getDarkestSecret() const;
-	int			getIndex() const;
-	bool		isEmpty() const;
+	int					getIndex() const;
+	bool				isEmpty() const;
 };
 
 #endif
