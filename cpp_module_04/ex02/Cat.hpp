@@ -18,6 +18,7 @@ public:
 	virtual void	makeSound( void ) const;
 	void					setBrain( Brain const& brain );
 	Brain &				getBrain( void ) const;
+	void					displayIdeas( void ) const;
 
 private:
 	Brain					*_brain;

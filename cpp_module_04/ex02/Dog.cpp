@@ -53,3 +53,8 @@ void	Dog::setBrain( Brain const& brain )
 {
 	*(this->_brain) = brain;
 }
+
+void	Dog::displayIdeas( void ) const
+{
+	this->_brain->displayIdeas();
+}

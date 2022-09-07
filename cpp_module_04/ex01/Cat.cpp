@@ -53,3 +53,9 @@ void	Cat::setBrain( Brain const& brain )
 {
 	*(this->_brain) = brain;
 }
+
+
+void	Cat::displayIdeas( void ) const
+{
+	this->_brain->displayIdeas();
+}

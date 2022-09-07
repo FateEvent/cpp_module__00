@@ -24,12 +24,18 @@ int	main()
 	const WrongAnimal* w = new WrongAnimal();
 	const WrongAnimal* x = new WrongCat();
 
-	std::cout << x->getType() << " " << std::endl;
+	std::cout << "Hi! I'm a " << x->getType() << " " << std::endl;
 	x->makeSound(); //will output the animal sound!
 	w->makeSound();
 
 	delete w;
 	delete x;
+
+	const Dog	*doggy;
+
+	doggy = new Dog;
+	std::cout << "Hi! I'm a " << doggy->getType() << std::endl;
+	delete doggy;
 
 	return (0);
 }

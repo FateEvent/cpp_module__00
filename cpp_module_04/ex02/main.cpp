@@ -22,5 +22,14 @@ int	main()
 	delete j;	//should not create a leak
 	delete k;
 
+	Cat	kittyPaw;
+	Brain	brain;
+
+	brain.setIdea( "food" );
+	brain.setIdea( "hugs" );
+	kittyPaw.setBrain( brain );
+	brain.displayIdeas();
+	kittyPaw.displayIdeas();
+
 	return (0);
 }

@@ -20,12 +20,19 @@ int	main()
 	delete k;
 
 	Cat	kittyPaw;
+	Dog	doggyPaw;
 	Brain	brain;
 
 	brain.setIdea( "food" );
 	brain.setIdea( "hugs" );
 	kittyPaw.setBrain( brain );
+	doggyPaw.setBrain( brain );
 	brain.displayIdeas();
+	kittyPaw.displayIdeas();
+
+	kittyPaw.~Cat();
+	doggyPaw.displayIdeas();
+
 
 	return (0);
 }
