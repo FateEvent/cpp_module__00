@@ -10,10 +10,12 @@ int	main()
 	Bureaucrat	dwan("Dwan", 1);
 	Bureaucrat	crazy("Crazy Boss", 0);
 	Bureaucrat	jeremy("Jerry", 167);
+	Bureaucrat	duarte( jeremy );
 
 	std::cout << larry << std::endl;
 	std::cout << dwan << std::endl;
 	std::cout << crazy << std::endl;
+	std::cout << duarte << std::endl;
 
 	crazy.demote();
 	dwan.promote();

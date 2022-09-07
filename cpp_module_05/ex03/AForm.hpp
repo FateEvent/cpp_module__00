@@ -11,24 +11,24 @@ class Bureaucrat;
 class AForm
 {
 private:
-	std::string const		_name;
-	bool					_isSigned;
-	int	const				_signatureGrade;
-	int	const				_executionGrade;
+	std::string const	_name;
+	bool							_isSigned;
+	int	const					_signatureGrade;
+	int	const					_executionGrade;
 
-	AForm&					operator = ( const AForm &other );
+	AForm&						operator = ( const AForm &other );
 
 public:
 	AForm( void );
 	AForm( std::string const name, int signatureGrade, int executionGrade );
 	AForm( AForm const& other );
-	virtual					~AForm( void );
+	virtual						~AForm( void );
 
 	std::string				getName( void ) const;
-	int						getSignatureGrade( void ) const;
-	int						getExecutionGrade( void ) const;
-	bool					getIsSigned( void ) const;
-	void					setSignature( void );
+	int								getSignatureGrade( void ) const;
+	int								getExecutionGrade( void ) const;
+	bool							getIsSigned( void ) const;
+	void							setSignature( void );
 
 	virtual void			beSigned( Bureaucrat const& employee );
 	virtual bool			execute( Bureaucrat const& executor ) const = 0;
