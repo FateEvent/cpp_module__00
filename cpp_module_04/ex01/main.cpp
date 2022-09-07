@@ -24,6 +24,7 @@ int	main()
 
 	brain.setIdea( "food" );
 	brain.setIdea( "hugs" );
+	kittyPaw.setBrain( brain );
 	brain.displayIdeas();
 
 	return (0);
