@@ -48,6 +48,7 @@ int main()
 
 	vero.use(0, *bob);
 	joe.use(1, *me);
+	joe.use(1, *me);
 
 	delete bob;
 	delete me;

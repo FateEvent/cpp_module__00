@@ -90,7 +90,8 @@ void Character::use(int idx, ICharacter& target)
 	if (this->_stock[idx])
 	{
 		this->_stock[idx]->use( target );
-		this->unequip( idx );
+		if (this->_stock[idx]->getType() != "empty")
+			this->unequip( idx );
 	}
 }
 
