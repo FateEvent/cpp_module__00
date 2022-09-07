@@ -4,20 +4,18 @@ MateriaSource::MateriaSource( void ) : _index(0)
 {
 	for (int i = 0; i < 4; i++)
 		this->_stock[i] = NULL;
-	std::cout << "MateriaSource constructor called" << std::endl;
 }
 
 
 MateriaSource::MateriaSource( const MateriaSource & other )
 {
 	*this = other;
-	std::cout << "MateriaSource copy constructor called" << std::endl;
 }
 
 
 MateriaSource::~MateriaSource( void )
 {
-	std::cout << "MateriaSource destructor called" << std::endl;
+
 }
 
 
@@ -46,7 +44,7 @@ void MateriaSource::learnMateria(AMateria *m)
 	{
 		this->_stock[this->_index] = m;
 		this->_index++;
-		std::cout << "Learned " << m->getType() << " Materia" << std::endl;
+		std::cout << "Learnt " << m->getType() << " materia" << std::endl;
 	}
 }
 

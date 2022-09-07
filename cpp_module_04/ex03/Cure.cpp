@@ -2,20 +2,19 @@
 
 Cure::Cure( void ) : AMateria( "cure" )
 {
-	std::cout << "Cure constructor called" << std::endl;
+
 }
 
 
 Cure::Cure( const Cure & other )
 {
 	*this = other;
-	std::cout << "Cure copy constructor called" << std::endl;
 }
 
 
 Cure::~Cure( void )
 {
-	std::cout << "Cure destructor called" << std::endl;
+
 }
 
 

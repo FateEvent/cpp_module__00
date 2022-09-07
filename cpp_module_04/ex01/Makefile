@@ -1,6 +1,6 @@
 NAME = oneDayAtTheFarm
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
 
 CPP_EXTENSION = .cpp
 

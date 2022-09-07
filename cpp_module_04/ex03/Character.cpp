@@ -1,34 +1,45 @@
 #include "Character.hpp"
 
-Character::Character( void ) : _name("black cultist")
+Character::Character( void ) : _name("A black cultist"), _stock(), _index(0)
 {
-	std::cout << this->_name << " has been created" << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->_stock[i] = new Water();
 }
 
 
-Character::Character( std::string const & name ) : _name( name )
+Character::Character( std::string const & name ) : _name(name), _stock(), _index(0)
 {
-	std::cout << this->_name << " has been created" << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->_stock[i] = new Water();
 }
 
 
-Character::Character(std::string const & name, AMateria* m) : _name(name)
+Character::Character( std::string const & name, AMateria* m ) : _name(name), _stock(), _index(0)
 {
 	this->_stock[0] = m;
-	std::cout << this->_name << " with " << this->_stock[0]->getType() << " has been created" << std::endl;
+	for (int i = 1; i < 4; i++)
+		this->_stock[i] = new Water();
 }
 
 
 Character::Character( const Character & other )
-{	
-	*this = other;
-	std::cout << this->_name << "genetically modified with " << this->_stock[0]->getType() << " has been created" << std::endl;
+{
+	for (int i = 0; i < 4; i++)
+		this->_stock[i] = new Water();
+	for (int i = 0; i < 4; i++)
+	{
+		delete this->_stock[i];
+		this->_stock[i] = other._stock[i]->clone();
+		i++;
+	}
+	this->_name = other._name;
 }
 
 
 Character::~Character( void )
 {
-	std::cout << this->_name << " has been destroyed" << std::endl;
+	for (int i = 0; i < 4; i++)
+		delete this->_stock[i];
 }
 
 
@@ -36,19 +47,16 @@ Character & Character::operator = ( const Character & other )
 {
 	if (this == &other)
 		return (*this);
-	Character *character = new Character;
-	int i = 0;
-	while (i < 4)
+	for (int i = 0; i < 4; i++)
+		this->_stock[i] = new Water();
+	for (int i = 0; i < 4; i++)
 	{
-		if (character->_stock[i])
-		{
-			delete character->_stock[i];
-			character->_stock[i] = other._stock[i]->clone();
-		}
+		delete this->_stock[i];
+		this->_stock[i] = other._stock[i]->clone();
 		i++;
 	}
-	character->_name = other._name;
-	return (*character);
+	this->_name = other._name;
+	return (*this);
 }
 
 
@@ -60,17 +68,9 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-	size_t i = 0;
-	while(i < 4)
-	{
-		if (this->_stock[i])
-		{
-			delete this->_stock[i];
-			this->_stock[i] = m;
-			return ;
-		}
-		i++;
-	}
+	this->_stock[_index] = m;
+	std::cout << "Materia " << this->_stock[_index]->getType() << " equipped" << std::endl;
+	setIndex();
 }
 
 
@@ -78,7 +78,7 @@ void Character::unequip(int idx)
 {
 	if (idx < 0 || idx > 3)
 		return ;
-	std::cout << "Materia " << this->_stock[idx]->getType() << " uneqipped" << std::endl;
+	std::cout << "Materia " << this->_stock[idx]->getType() << " unequipped" << std::endl;
 	this->_stock[idx]->setType( "empty" );
 }
 
@@ -92,4 +92,16 @@ void Character::use(int idx, ICharacter& target)
 		this->_stock[idx]->use( target );
 		this->unequip( idx );
 	}
+}
+
+
+void Character::setIndex( void )
+{
+	this->_index = (this->_index + 1) % 4;
+}
+
+
+int Character::getIndex( void ) const
+{
+	return (this->_index);
 }

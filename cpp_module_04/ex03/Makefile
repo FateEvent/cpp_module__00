@@ -5,7 +5,7 @@ CPP_EXTENSION = .cpp
 
 #		눈_눈			SOURCES			눈_눈
 
-FILES 	=	AMateria Cure Ice Character MateriaSource main
+FILES 	=	AMateria Cure Ice Water Character MateriaSource main
 SRCS_FILES	+=	$(FILES)
 
 SRCS_FILES_EXT 		+= 	$(addsuffix $(CPP_EXTENSION), $(SRCS_FILES))

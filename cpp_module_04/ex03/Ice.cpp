@@ -2,20 +2,19 @@
 
 Ice::Ice( void ) : AMateria( "ice" )
 {
-	std::cout << "Ice constructor called" << std::endl;
+
 }
 
 
 Ice::Ice( const Ice & other )
 {
 	*this = other;
-	std::cout << "Ice copy constructor called" << std::endl;
 }
 
 
 Ice::~Ice( void )
 {
-	std::cout << "Ice destructor called" << std::endl;
+
 }
 
 
