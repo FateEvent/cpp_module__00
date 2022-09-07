@@ -47,3 +47,9 @@ Brain &	Dog::getBrain( void ) const
 {
 		return (*(this->_brain));
 }
+
+
+void	Dog::setBrain( Brain const& brain )
+{
+	*(this->_brain) = brain;
+}

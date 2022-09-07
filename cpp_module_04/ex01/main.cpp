@@ -20,10 +20,11 @@ int	main()
 	delete k;
 
 	Cat	kittyPaw;
+	Brain	brain;
 
-//	kittyPaw._brain->setIdea( "food" );
-//	kittyPaw._brain->setIdea( "hugs" );
-//	kittyPaw._brain->displayIdeas();
+	brain.setIdea( "food" );
+	brain.setIdea( "hugs" );
+	brain.displayIdeas();
 
 	return (0);
 }

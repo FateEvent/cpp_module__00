@@ -14,12 +14,13 @@ public:
 	Cat( void );
 	Cat( const Cat &other );
 	~Cat( void );
-	Cat &			operator = ( const Cat &other );
+	Cat &					operator = ( const Cat &other );
 	virtual void	makeSound( void ) const;
-	Brain &			getBrain( void ) const;
+	void					setBrain( Brain const& brain );
+	Brain &				getBrain( void ) const;
 
 private:
-	Brain			*_brain;
+	Brain					*_brain;
 };
 
 #endif

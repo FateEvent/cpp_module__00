@@ -47,3 +47,9 @@ Brain &	Cat::getBrain( void ) const
 {
 		return (*(this->_brain));
 }
+
+
+void	Cat::setBrain( Brain const& brain )
+{
+	*(this->_brain) = brain;
+}

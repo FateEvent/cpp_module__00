@@ -21,7 +21,7 @@ protected:
 	std::string	_ideas[100];
 
 private:
-	int	_index;
+	int					_index;
 };
 
 #endif

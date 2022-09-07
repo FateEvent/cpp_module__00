@@ -1,21 +1,23 @@
 #include "Brain.hpp"
 
-Brain::Brain( void )
+Brain::Brain( void ) : _index(0)
 {
-	this->_index = 0;
 	int	i = 0;
 
-	while (i++ < 100)
-		_ideas[i] = "empty";
-	std::cout << "A new brain has been produced." << this -> _index << std::endl;
+	while (i < 100)
+		_ideas[i++] = "empty";
+	std::cout << "A new brain has been produced." << std::endl;
 }
 
 
 Brain::Brain( const Brain &other ) : _index(other._index)
 {
 	int	i = 0;
-	while (i++ < 100)
+	while (i < 100)
+	{
 		this->_ideas[i] = other._ideas[i];
+		i++;
+	}
 	std::cout << "A brain genetically modified has been produced." << std::endl;
 }
 
@@ -32,15 +34,17 @@ Brain &	Brain::operator = ( const Brain &other )
 		return (*this);
 	int	i = 0;
 	_index = other._index;
-	while (i++ < 100)
+	while (i < 100)
+	{
 		this->_ideas[i] = other._ideas[i];
+		i++;
+	}
 	return (*this);
 }
 
 
 void	Brain::setIndex( void )
 {
-	std::cout << "bau" << std::endl;
 	this->_index = (this->_index + 1) % 100;
 }
 
@@ -59,9 +63,7 @@ std::string	*Brain::getIdeas( void )
 
 void	Brain::setIdea( std::string const& idea )
 {
-	std::cout << "cai" << std::endl;
-//	std::cout << this->_index << std::endl;
-	this->_ideas[0] = idea;
+	this->_ideas[_index] = idea;
 	setIndex();
 }
 
@@ -71,5 +73,5 @@ void	Brain::displayIdeas( void ) const
 	int	i(0);
 
 	while (this->_ideas[i] != "empty")
-		std::cout << this->_ideas[i] << std::endl;
+		std::cout << this->_ideas[i++] << std::endl;
 }

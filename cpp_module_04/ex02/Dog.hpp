@@ -14,12 +14,13 @@ public:
 	Dog( void );
 	Dog( const Dog &other );
 	~Dog( void );
-	Dog &			operator = ( const Dog &other );
+	Dog &					operator = ( const Dog &other );
 	virtual void	makeSound( void ) const;
-	Brain &			getBrain( void ) const;
+	void					setBrain( Brain const& brain );
+	Brain &				getBrain( void ) const;
 
 private:
-	Brain			*_brain;
+	Brain					*_brain;
 };
 
 #endif
