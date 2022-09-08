@@ -59,7 +59,7 @@ enum type	typeDetecter(std::string const& str)
 	bool	isNeg = false;
 	for(i = 0; str[i] != 0; ++i) {
 		if (str[i] == '-') {
-			if (i == 0) {
+			if (i == 0 && (str[i + 1] >= 48 && str[i + 1] <= 57)) {
 				isNeg = true;
 				continue ;
 			}
@@ -109,93 +109,113 @@ enum type	typeDetecter(std::string const& str)
 
 void	convert( char a )
 {
+	std::cout << "char" << a << std::endl;
 	std::cout << "char: " << a << std::endl;
 
 	int	i = static_cast<int>(a);
 	std::cout << "int: " << i << std::endl;
 
 	float	f = static_cast<float>(a);
-	std::cout << "float: " << f << 'f' << std::endl;
+	std::cout << "float: " << f << ".0f" << std::endl;
 
 	double	d = static_cast<double>(a);
-	std::cout << "double: " << d << std::endl;
+	std::cout << "double: " << d << ".0" << std::endl;
 }
 
 
 void	convert( int i )
 {
-	if (i > std::numeric_limits<char>::max() || i < std::numeric_limits<char>::min()) {
+	std::cout << "int" << i << std::endl;
+	if (i > std::numeric_limits<char>::max()) {
 		std::cout << "char: Overflow" << std::endl;
+	} else if (i < std::numeric_limits<char>::min()) {
+		std::cout << "char: Underflow" << std::endl;
 	} else if (i >= 32 && i <= 126) {
 		char	a = static_cast<char>(i);
 		std::cout << "char: " << a << std::endl;
-	} else if (i < 0 || i > 127) {
-		std::cout << "char: Impossible" << std::endl;
-	} else {
+	} else if (i < 32 || i > 126) {
 		std::cout << "char: Non displayable" << std::endl;
+	} else {
+		std::cout << "char: Impossible" << std::endl;
 	}
 
 	std::cout << "int: " << i << std::endl;
 
 	float	f = static_cast<float>(i);
-	std::cout << "float: " << f << 'f' << std::endl;
+	std::cout << "float: " << f << ".0f" << std::endl;
 
 	double	d = static_cast<double>(i);
-	std::cout << "double: " << d << std::endl;
+	std::cout << "double: " << d << ".0" << std::endl;
 }
 
 void	convert( float f )
 {
-	if (f > std::numeric_limits<char>::max() || f < std::numeric_limits<char>::min()) {
+	std::cout << "fl" << f << std::endl;
+	if (f > std::numeric_limits<char>::max()) {
 		std::cout << "char: Overflow" << std::endl;
+	} else if (f < std::numeric_limits<char>::min()) {
+		std::cout << "char: Underflow" << std::endl;
 	} else if (f >= 32 && f <= 126) {
 		char	a = static_cast<char>(f);
 		std::cout << "char: " << a << std::endl;
-	} else if (f < 0 || f > 127) {
-		std::cout << "char: Impossible" << std::endl;
-	} else {
+	} else if (f < 32 || f > 126) {
 		std::cout << "char: Non displayable" << std::endl;
-	}
-	
-	if (f > std::numeric_limits<int>::max() || f < std::numeric_limits<int>::min()) {
-		std::cout << "int: Overflow" << std::endl;
 	} else {
+		std::cout << "char: Impossible" << std::endl;
+	}
+
+	if (f > std::numeric_limits<int>::max()) {
+		std::cout << "int: Overflow" << std::endl;
+	} else if (f < std::numeric_limits<int>::min()) {
+		std::cout << "int: Underflow" << std::endl;
+	} else if (f <= std::numeric_limits<int>::max() && f >= std::numeric_limits<int>::min()) {
 		int	i = static_cast<int>(f);
 		std::cout << "int: " << i << std::endl;
+	} else {
+		std::cout << "int: Impossible" << std::endl;
 	}
 	
 	std::cout << "float: " << f << 'f' << std::endl;
 
-	if (f > std::numeric_limits<double>::max() || f < std::numeric_limits<double>::min()) {
-		std::cout << "double: Overflow" << std::endl;
-	} else {
-		double	d = static_cast<double>(f);
-		std::cout << "double: " << d << std::endl;
-	}
+	double	d = static_cast<double>(f);
+	std::cout << "double: " << d << std::endl;
 }
 
 void	convert( double d )
 {
-	if (d > std::numeric_limits<char>::max() || d < std::numeric_limits<char>::min()) {
+	std::cout << "db" << d << std::endl;
+	if (d > std::numeric_limits<char>::max()) {
 		std::cout << "char: Overflow" << std::endl;
+	} else if (d < std::numeric_limits<char>::min()) {
+		std::cout << "char: Underflow" << std::endl;
 	} else if (d >= 32 && d<= 126) {
 		char	a = static_cast<char>(d);
 		std::cout << "char: " << a << std::endl;
-	} else if (d < 0 || d > 127) {
-		std::cout << "char: Impossible" << std::endl;
-	} else {
+	} else if (d < 32 || d > 126) {
 		std::cout << "char: Non displayable" << std::endl;
-	}
-	
-	if (d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min()) {
-		std::cout << "int: Overflow" << std::endl;
 	} else {
+		std::cout << "char: Impossible" << std::endl;
+	}
+
+	if (d > std::numeric_limits<int>::max()) {
+		std::cout << "int: Overflow" << std::endl;
+	} else if (d < std::numeric_limits<int>::min()) {
+		std::cout << "int: Underflow" << std::endl;
+	} else if (d <= std::numeric_limits<int>::max() && d >= std::numeric_limits<int>::min()) {
 		int	i = static_cast<int>(d);
 		std::cout << "int: " << i << std::endl;
+	} else {
+		std::cout << "int: Impossible" << std::endl;
 	}
 	
-	float	f = static_cast<float>(d);
-	std::cout << "float: " << f << 'f' << std::endl;
+	if (d > std::numeric_limits<float>::max()) {
+		std::cout << "float: Overflow" << std::endl;
+	} else if (d < std::numeric_limits<float>::min()) {
+		std::cout << "float: Underflow" << std::endl;
+	} else {
+		float	f = static_cast<float>(d);
+		std::cout << "float: " << f << 'f' << std::endl;
+	}
 
 	std::cout << "double: " << d << std::endl;
 }
