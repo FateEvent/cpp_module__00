@@ -22,14 +22,12 @@ enum type {
 		NAN_D
 	};
 
-Literals( void );
-~Literals ( void ) {};
-void	setLiteral( char a );
-void	setLiteral( int i );
-void	setLiteral( float f );
-void	setLiteral( double d );
+void	convert( char a );
+void	convert( int i );
+void	convert( float f );
+void	convert( double d );
 
-void	converter( std::string const& input );
+void	interpreter( std::string const& input );
 
 enum type	typeDetecter(std::string const& str);
 
