@@ -1,44 +1,5 @@
 #include "converter.hpp"
 
-void	interpreter( std::string const& input )
-{
-	switch (typeDetecter(input)) {
-		case UNKNOWN:
-			std::cout << "Unknown input" << std::endl;
-			break ;
-		case CHAR:
-			convert(input.at(0));
-			break ;
-		case INT:
-			convert(atoi(input.c_str()));
-			break ;
-		case FLOAT:
-			convert(static_cast<float>(std::strtod(input.c_str(), NULL)));
-			break ;
-		case DOUBLE:
-			convert(std::strtod(input.c_str(), NULL));
-			break;
-		case NAN_F:
-			convert(std::numeric_limits<float>::quiet_NaN());
-			break;
-		case INF_F:
-			convert(std::numeric_limits<float>::infinity());
-			break;
-		case N_INF_F:
-			convert(-std::numeric_limits<float>::infinity());
-			break;
-		case NAN_D:
-			convert(std::numeric_limits<double>::quiet_NaN());
-			break;
-		case INF_D:
-			convert(std::numeric_limits<double>::infinity());
-			break;
-		case NEG_INF_D:
-			convert(-std::numeric_limits<double>::infinity());
-			break;
-	}
-}
-
 enum type	typeDetecter(std::string const& str)
 {
 	if (str == "-inff")
@@ -85,7 +46,7 @@ enum type	typeDetecter(std::string const& str)
 		}
 	}
 	if (i == str.length()) {
-		return INT;
+		return (INT);
 	}
 
 	char	*fraction;
@@ -93,23 +54,21 @@ enum type	typeDetecter(std::string const& str)
 	if (str != fraction && d != HUGE_VAL) {
 		if (str.at(str.length() - 1) == 'f') {
 			if (d <= std::numeric_limits<float>::max() && d >= -std::numeric_limits<float>::max()) {
-				return FLOAT;
+				return (numericValuesHandler(str));
 			}
 		} else {
-			return DOUBLE;
+			return (numericValuesHandler(str));
 		}
 	}
 
 	if (str.length() == 1 && str.at(0) >= 32 && str.at(0) <= 126) {
-		return CHAR;
+		return (CHAR);
 	}
-	return UNKNOWN;
+	return (UNKNOWN);
 }
-
 
 void	convert( char a )
 {
-	std::cout << "char" << a << std::endl;
 	std::cout << "char: " << a << std::endl;
 
 	int	i = static_cast<int>(a);
@@ -122,10 +81,8 @@ void	convert( char a )
 	std::cout << "double: " << d << ".0" << std::endl;
 }
 
-
 void	convert( int i )
 {
-	std::cout << "int" << i << std::endl;
 	if (i > std::numeric_limits<char>::max()) {
 		std::cout << "char: Overflow" << std::endl;
 	} else if (i < std::numeric_limits<char>::min()) {
@@ -150,7 +107,6 @@ void	convert( int i )
 
 void	convert( float f )
 {
-	std::cout << "fl" << f << std::endl;
 	if (f > std::numeric_limits<char>::max()) {
 		std::cout << "char: Overflow" << std::endl;
 	} else if (f < std::numeric_limits<char>::min()) {
@@ -175,15 +131,14 @@ void	convert( float f )
 		std::cout << "int: Impossible" << std::endl;
 	}
 	
-	std::cout << "float: " << f << 'f' << std::endl;
+	std::cout << "float: " << f << printDotZero(static_cast<double>(f)) << 'f' << std::endl;
 
 	double	d = static_cast<double>(f);
-	std::cout << "double: " << d << std::endl;
+	std::cout << "double: " << d << printDotZero(static_cast<double>(f)) << std::endl;
 }
 
 void	convert( double d )
 {
-	std::cout << "db" << d << std::endl;
 	if (d > std::numeric_limits<char>::max()) {
 		std::cout << "char: Overflow" << std::endl;
 	} else if (d < std::numeric_limits<char>::min()) {
@@ -210,12 +165,12 @@ void	convert( double d )
 	
 	if (d > std::numeric_limits<float>::max()) {
 		std::cout << "float: Overflow" << std::endl;
-	} else if (d < std::numeric_limits<float>::min()) {
+	} else if (d < -std::numeric_limits<float>::max()) {
 		std::cout << "float: Underflow" << std::endl;
 	} else {
 		float	f = static_cast<float>(d);
-		std::cout << "float: " << f << 'f' << std::endl;
+		std::cout << "float: " << f << printDotZero(d) << 'f' << std::endl;
 	}
 
-	std::cout << "double: " << d << std::endl;
+	std::cout << "double: " << d << printDotZero(d) << std::endl;
 }

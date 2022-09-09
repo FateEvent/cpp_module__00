@@ -29,6 +29,8 @@ void	convert( double d );
 
 void	interpreter( std::string const& input );
 
+enum type	numericValuesHandler(std::string const& input);
 enum type	typeDetecter(std::string const& str);
+const char	*printDotZero(double number);
 
 #endif
