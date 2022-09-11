@@ -16,8 +16,7 @@ public:
 	Array( unsigned int n ) : _size(n), _tab(new T[n])
 	{
 		for (size_t i = 0; i < _size; i++) {
-			_tab[i] = 0;
-			std::cout << "tab[" << i << "] = " << _tab[i] << std::endl;
+			_tab[i] = i;
 		}
 		std::cout << "tab = " << _tab << std::endl;
 	}
@@ -26,7 +25,6 @@ public:
 	{
 		for (size_t i = 0; i < _size; i++) {
 			_tab[i] = src._tab[i];
-			std::cout << "tab[" << i << "] = " << _tab[i] << std::endl;
 		}
 		std::cout << "tab = " << _tab << std::endl;
 	}
@@ -40,7 +38,6 @@ public:
 		_tab = new T[_size];
 		for (size_t i = 0; i < _size; i++) {
 			_tab[i] = src._tab[i];
-			std::cout << "tab[" << i << "] = " << _tab[i] << std::endl;
 		}
 		std::cout << "tab = " << _tab << std::endl;
 	}
@@ -61,6 +58,12 @@ public:
 		if (index < 0 || index >= _size )
 			throw ArrayException("Array::InvalidIndexException");
 		return (_tab[index]);
+	}
+
+	void	display( void )
+	{
+		for (size_t i = 0; i < _size; i++)
+			std::cout << "tab[" << i << "] = " << _tab[i] << std::endl;
 	}
 
 private:
