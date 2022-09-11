@@ -56,13 +56,10 @@ enum type	numericValuesHandler(std::string const& input)
 			return (UNKNOWN);
 		i++;
 	}
-	if (!input[i])
-	{
-		if (dotCount == 1)
+	if (!input[i]) {
+		if (dotCount <= 1)
 			return (DOUBLE);
-		return (UNKNOWN);
-	}
-	else if (input[i] == 'f' && !input[i + 1] && dotCount == 1)
+	} else if (input[i] == 'f' && !input[i + 1] && dotCount <= 1)
 		return (FLOAT);
 	return (UNKNOWN);
 }

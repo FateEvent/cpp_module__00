@@ -53,12 +53,10 @@ enum type	typeDetecter(std::string const& str)
 	double d = std::strtod(str.c_str(), &fraction);
 	if (str != fraction && d != HUGE_VAL) {
 		if (str.at(str.length() - 1) == 'f') {
-			if (d <= std::numeric_limits<float>::max() && d >= -std::numeric_limits<float>::max()) {
+			if (d <= std::numeric_limits<float>::max() && d >= -std::numeric_limits<float>::max())
 				return (numericValuesHandler(str));
-			}
-		} else {
+		} else if (d <= std::numeric_limits<double>::max() && d >= -std::numeric_limits<double>::max())
 			return (numericValuesHandler(str));
-		}
 	}
 
 	if (str.length() == 1 && str.at(0) >= 32 && str.at(0) <= 126) {
