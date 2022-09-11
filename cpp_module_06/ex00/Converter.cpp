@@ -90,7 +90,7 @@ void	convert( int i )
 	} else if (i >= 32 && i <= 126) {
 		char	a = static_cast<char>(i);
 		std::cout << "char: " << a << std::endl;
-	} else if (i < 32 || i > 126) {
+	} else if ((i >= 0 && i < 32) || i == 127) {
 		std::cout << "char: Non displayable" << std::endl;
 	} else {
 		std::cout << "char: Impossible" << std::endl;
@@ -114,7 +114,7 @@ void	convert( float f )
 	} else if (f >= 32 && f <= 126) {
 		char	a = static_cast<char>(f);
 		std::cout << "char: " << a << std::endl;
-	} else if (f < 32 || f > 126) {
+	} else if ((f >= 0 && f < 32) || f == 127) {
 		std::cout << "char: Non displayable" << std::endl;
 	} else {
 		std::cout << "char: Impossible" << std::endl;
@@ -143,10 +143,10 @@ void	convert( double d )
 		std::cout << "char: Overflow" << std::endl;
 	} else if (d < std::numeric_limits<char>::min()) {
 		std::cout << "char: Underflow" << std::endl;
-	} else if (d >= 32 && d<= 126) {
+	} else if (d >= 32 && d <= 126) {
 		char	a = static_cast<char>(d);
 		std::cout << "char: " << a << std::endl;
-	} else if (d < 32 || d > 126) {
+	} else if ((d >= 0 && d < 32) || d == 127) {
 		std::cout << "char: Non displayable" << std::endl;
 	} else {
 		std::cout << "char: Impossible" << std::endl;
