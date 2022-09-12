@@ -8,25 +8,25 @@ template <typename T = int>
 class Array
 {
 public:
-	Array( void ) : _size(0), _tab(new T[0])
+	Array( void ) : _size(0), _arr(new T[0])
 	{
-		std::cout << "tab = " << _tab << std::endl;
+		std::cout << "The memory address of the newly created array is " << _arr << std::endl;
 	}
 
-	Array( unsigned int n ) : _size(n), _tab(new T[n])
+	Array( unsigned int n ) : _size(n), _arr(new T[n])
 	{
-		for (size_t i = 0; i < _size; i++) {
-			_tab[i] = i;
+		for (std::size_t i = 0; i < _size; i++) {
+			_arr[i] = i;
 		}
-		std::cout << "tab = " << _tab << std::endl;
+		std::cout << "The memory address of the newly created array is " << _arr << std::endl;
 	}
 
-	Array( Array<T> const & src) : _size(src._size), _tab(new T[src._size])
+	Array( Array<T> const & src) : _size(src._size), _arr(new T[src._size])
 	{
-		for (size_t i = 0; i < _size; i++) {
-			_tab[i] = src._tab[i];
+		for (std::size_t i = 0; i < _size; i++) {
+			_arr[i] = src._arr[i];
 		}
-		std::cout << "tab = " << _tab << std::endl;
+		std::cout << "The memory address of the newly created array is " << _arr << std::endl;
 	}
 
 	Array &	operator = ( Array const & src )
@@ -34,41 +34,48 @@ public:
 		if (this == &src)
 			return(*this);
 		_size = src._size;
-		delete[] _tab;
-		_tab = new T[_size];
-		for (size_t i = 0; i < _size; i++) {
-			_tab[i] = src._tab[i];
+		delete[] _arr;
+		_arr = new T[_size];
+		for (std::size_t i = 0; i < _size; i++) {
+			_arr[i] = src._arr[i];
 		}
-		std::cout << "tab = " << _tab << std::endl;
+		std::cout << "The memory address of the newly created array is " << _arr << std::endl;
 	}
 
 	~Array( void )
 	{
-		delete[] _tab;
+		delete[] _arr;
 	}
 
-	size_t	size( void ) const
+	std::size_t	size( void ) const
 	{
 		return (_size);
 	}
 
-	T &	operator [] ( size_t const & index )
+	T &	operator [] ( std::size_t const & index )
 	{
-		std::cout << index << std::endl;
-		if (index < 0 || index >= _size )
+		if (index >= _size )
 			throw ArrayException("Array::InvalidIndexException");
-		return (_tab[index]);
+		return (_arr[index]);
 	}
 
 	void	display( void )
 	{
-		for (size_t i = 0; i < _size; i++)
-			std::cout << "tab[" << i << "] = " << _tab[i] << std::endl;
+		for (std::size_t i = 0; i < _size; i++)
+			std::cout << "array[" << i << "] = " << _arr[i] << std::endl;
 	}
 
 private:
-	T*			_tab;
-	size_t	_size;
+	T*			_arr;
+	std::size_t	_size;
 };
+
+template <typename T>
+std::ostream&	operator << (std::ostream& os, Array<T>& arr)
+{
+	for (std::size_t i = 0; i < arr.size(); i++)
+		os << "array[" << i << "] = " << arr[i] << std::endl;
+	return (os);
+}
 
 #endif

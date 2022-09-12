@@ -4,7 +4,6 @@
 #define MAX_VAL 750
 int main(int, char**)
 {
-/*
 	Array<int> numbers(MAX_VAL);
 	int* mirror = new int[MAX_VAL];
 	srand(time(NULL));
@@ -49,8 +48,12 @@ int main(int, char**)
 	{
 		numbers[i] = rand();
 	}
-	delete [] mirror;//
-*/
+
+	numbers.display();
+
+	delete [] mirror;
+
+	std::cout << std::endl << "My tests" << std::endl << std::endl;
 
 	::Array<> empty;
 	::Array<std::string>	tab(6);
@@ -60,16 +63,33 @@ int main(int, char**)
 	tab[3] = "we";
 	tab[4] = "go";
 	tab[5] = "again";
+
+	::Array<>	arr(6);
 	
 	try
 	{
-		std::cout << tab[5] << std::endl;
+		std::cout << tab[10] << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 
+	try
+	{
+		std::cout << tab[-5] << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+//	std::cout << tab[9] << std::endl;
+//	libc++abi.dylib: terminating with uncaught exception of type ArrayException: Array::InvalidIndexException
+//	zsh:	abort			./array
+
 	tab.display();
+	std::cout << std::endl << arr << std::endl;
+
 	return 0;
 }
