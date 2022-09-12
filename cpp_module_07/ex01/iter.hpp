@@ -9,7 +9,7 @@ void	display(T element) {
 }
 
 template<typename T>
-void	iter(T *arr, size_t size, void (*f)(T)) {
+void	iter(T *arr, size_t size, void (*f)(T const &)) {
 	size_t	i(0);
 
 	while (i < size)
