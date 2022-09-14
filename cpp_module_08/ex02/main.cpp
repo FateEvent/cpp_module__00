@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-#include <stack>
 #include "MutantStack.hpp"
 
 int main()
@@ -30,6 +27,8 @@ int main()
 			std::cout << *it << std::endl;
 	++it;
 	}
+	std::stack<int> s1(mstack);
+
 
 	MutantStack<int>	mlist;
 
@@ -56,7 +55,7 @@ int main()
 			std::cout << *it2 << std::endl;
 	++it2;
 	}
-//	std::stack<int> s(mstack);
-//	std::stack<int> s(mlist);
+	std::stack<int> s2(mlist);
+
 	return 0;
 }

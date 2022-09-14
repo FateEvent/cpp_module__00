@@ -1,12 +1,12 @@
 // Self implementation of
 // the Vector Class in C++
 
-//#include <bits/stdc++.h>
 #include <iostream>
 #include "ArrayException.hpp"
 
 template <typename T> class MyOwnVectorClass {
 
+private:
 	// arr is the integer pointer
 	// which stores the address of our vector
 	T* arr;
@@ -114,6 +114,34 @@ public:
 		}
 		std::cout << std::endl;
 	}
+
+	typedef struct Iterator
+	{
+		Iterator(int	*ptr) : _ptr(ptr) {}
+
+		int	&operator * () const { return *_ptr; }
+		int	*operator -> () { return _ptr; }
+
+		// Prefix increment
+		Iterator& operator ++() { _ptr++; return *this; }
+
+		// Postfix increment
+		Iterator operator ++(int) { Iterator tmp = *this; ++(*this); return tmp; }
+
+		Iterator&	operator --() { _ptr--; return *this; }
+		Iterator	operator --(int) { Iterator tmp = *this; --(*this); return tmp; }
+
+		bool operator == (const Iterator& it) { return this->_ptr == it._ptr; };
+		bool operator != (const Iterator& it) { return this->_ptr != it._ptr; };
+
+	private:
+		int	*_ptr;
+
+	}								iterator;
+
+	Iterator	begin()	{ return Iterator(&arr[0]); }
+	Iterator	end()		{ return Iterator(&arr[size()]); }
+
 };
 
 // Driver code
@@ -130,6 +158,19 @@ int main()
 	v1.push(72);
 	v1.push(73);
 	v1.push(74);
+
+
+	std::cout << "The vector contains the following elements:" << std::endl;
+	MyOwnVectorClass<int>::iterator it = v.begin();
+	MyOwnVectorClass<int>::iterator ite = v.end();
+	
+	++it;
+	--it;
+	while (it != ite)
+	{
+		std::cout << *it << std::endl;
+		++it;
+	}
 
 	std::cout << "Vector size : " << v.size() << std::endl;
 	std::cout << "Vector capacity : " << v.getcapacity() << std::endl;

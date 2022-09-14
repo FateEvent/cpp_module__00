@@ -1,14 +1,5 @@
 #include "Span.hpp"
 
-struct c_unique {
-	int current;
-	c_unique() {current=0;}
-	int operator()() {return ++current;}
-} 		UniqueNumber;
-
-
-int RandomNumber () { return (std::rand()%100); }
-
 Span::Span( void ) : _capacity(1) { }
 
 Span::Span( unsigned capacity ) : _capacity(capacity) { }
@@ -83,6 +74,14 @@ unsigned int	Span::longestSpan( void ) {
 
 	return (i2 - i);
 }
+
+struct c_unique {
+	int current;
+	c_unique() {current=0;}
+	int operator()() {return ++current;}
+}				UniqueNumber;
+
+static int	RandomNumber () { return (std::rand() % 100); }
 
 void	Span::addManyANumber( void ) {
 	std::srand (unsigned(std::time(0)));
