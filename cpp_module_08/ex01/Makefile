@@ -1,11 +1,11 @@
-NAME = mutantAbomination
+NAME = spanning
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CPP_EXTENSION = .cpp
 
 #		눈_눈			SOURCES			눈_눈
 
-FILES 	=	ArrayException main
+FILES 	=	Span ArrayException main
 SRCS_FILES	+=	$(FILES)
 
 SRCS_FILES_EXT 		+= 	$(addsuffix $(CPP_EXTENSION), $(SRCS_FILES))
