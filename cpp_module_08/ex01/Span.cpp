@@ -1,8 +1,8 @@
 #include "Span.hpp"
 
-Span::Span( void ) : _capacity(1) { }
+Span::Span( void ) : _capacity(1), _arr(1), _current(0) { }
 
-Span::Span( unsigned capacity ) : _capacity(capacity) { }
+Span::Span( unsigned capacity ) : _capacity(capacity), _arr(capacity), _current(0) { }
 
 Span::Span( const Span& src ) : _capacity(src._capacity) { }
 
@@ -15,10 +15,10 @@ Span::~Span( void ) { }
 
 void Span::addNumber( unsigned data ) {
 	try {
-		if (_arr.size() == _capacity)
+		if (_current == _capacity)
 			throw (ArrayException("Span::MaximumCapacityLimitExcedeedException"));
 		else
-			_arr.push_back(data);
+			_arr[_current++] = data;
 	}
 	catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
@@ -85,5 +85,6 @@ static int	RandomNumber () { return (std::rand() % 100); }
 
 void	Span::addManyANumber( void ) {
 	std::srand (unsigned(std::time(0)));
-	std::generate (_arr.begin(), _arr.end(), RandomNumber);
+	std::generate (_arr.begin() + _current, _arr.end(), RandomNumber);
+	_current = _capacity;
 }

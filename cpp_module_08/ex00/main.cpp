@@ -30,7 +30,7 @@ int	main() {
 	std::cout << "Does our vector vec contain a 10? " << std::endl;
 
 	try {
-		if (easyfind(vec, 10)) {
+		if (easyfind(vec, 10) || easyfind(vec, 10) == 0) {
 			std::cout << "It may be found at index:" << std::endl;
 			std::cout << easyfind(vec, 10) << std::endl;
 		}
@@ -43,7 +43,7 @@ int	main() {
 	std::cout << "Does our vector vec contain a 98? " << std::endl;
 
 	try {
-		if (easyfind(vec, 98)) {
+		if (easyfind(vec, 98) || easyfind(vec, 98) == 0) {
 			std::cout << "It may be found at index:" << std::endl;
 			std::cout << easyfind(vec, 98) << std::endl;
 		}
@@ -56,7 +56,7 @@ int	main() {
 	std::cout << "Does our vector vec contain a 74? " << std::endl;
 
 	try {
-		if (easyfind(vec, 74)) {
+		if (easyfind(vec, 74) || easyfind(vec, 74) == 0) {
 			std::cout << "It may be found at index:" << std::endl;
 			std::cout << easyfind(vec, 74) << std::endl;
 		}
