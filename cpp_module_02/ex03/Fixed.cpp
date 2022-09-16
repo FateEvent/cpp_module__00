@@ -9,9 +9,9 @@ Fixed::Fixed( void ) : _value(0)
 }
 
 
-Fixed::Fixed( Fixed const& other ) : _value(other._value)
+Fixed::Fixed( Fixed const& other ) : _value(0)
 {
-
+	*this = other;
 }
 
 
@@ -21,7 +21,7 @@ Fixed::~Fixed( void )
 }
 
 
-Fixed&  Fixed::operator = (Fixed const & other) throw ()
+Fixed&	Fixed::operator = (Fixed const & other) throw ()
 {
 	if (this == & other)
 		return (*this);

@@ -9,9 +9,10 @@ Fixed::Fixed( void ) : _value(0)
 }
 
 
-Fixed::Fixed( Fixed const& other ) : _value(other._value)
+Fixed::Fixed( Fixed const& other ) : _value(0)
 {
 	std::cout << "Copy constructor called" << std::endl;
+	*this = other;
 }
 
 
@@ -24,11 +25,10 @@ Fixed::~Fixed( void )
 Fixed&	Fixed::operator = (Fixed const & other) throw ()
 {
 	if (this == & other)
-		return  (*this);
+		return (*this);
 	this->_value = other._value;
 	std::cout << "Copy assignment operator called" << std::endl;
 	return (*this);
-
 }
 
 

@@ -11,5 +11,4 @@ typedef struct s_data {
 uintptr_t	serialize(Data* ptr);
 Data* deserialize(uintptr_t raw);
 
-
 #endif
