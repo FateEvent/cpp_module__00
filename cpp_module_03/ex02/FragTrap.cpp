@@ -3,8 +3,8 @@
 FragTrap::FragTrap() : ClapTrap()
 {
 	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
 	std::cout << "The FragTrap Destroyer " << this->_name << ", the final product of the ClapTrap robot family, has been created by the RoboCorps factories!" << std::endl;
 }
 

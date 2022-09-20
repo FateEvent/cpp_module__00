@@ -13,6 +13,7 @@ int main()
 	DiamondTrap	kitty;
 	DiamondTrap	bruce;
 
+	bruce.whoAmI();
 //	fab.attack( "Shanti" );
 //	diane.attack( "Fab" );
 	fab.takeDamage( 30 );

@@ -51,4 +51,6 @@ void    DiamondTrap::attack( std::string const & target )
 void    DiamondTrap::whoAmI( void )
 {
 	std::cout << "The DiamondTrap Mountain " << this->_name << ", " << ClapTrap::getName() << " reporting for duty." << std::endl;
+	std::cout << "I have " << this->_hitPoints << " hit points, " << _energyPoints << " energy points and cause ";
+	std::cout << this->_attackDamage << " attack damages." << std::endl;
 }
