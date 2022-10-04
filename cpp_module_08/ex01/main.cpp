@@ -10,9 +10,8 @@ int main()
 	span.addNumber(15);
 	span.addNumber(34);
 	span.addNumber(18);
-	span.addNumber(15);
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < span.getSize(); i++)
 		std::cout << span[i] << std::endl;
 	std::cout << std::endl;
 
@@ -41,8 +40,18 @@ int main()
 	span.addManyANumber();
 
 	std::cout << span[4] << std::endl;
-	std::cout << span[5] << std::endl;
-	std::cout << span[6] << std::endl;
+
+	Span	empty(0);
+
+	try {
+		std::cout << "The shortest span is: " << empty.shortestSpan() << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+
+	for (int i = 234; i < 245; i++)
+		std::cout << sp2[i] << std::endl;
 
 	return 0;
 }

@@ -11,8 +11,8 @@ class Span
 {
 private:
 	std::vector<int>	_arr;
-	unsigned 					_capacity;
-	unsigned					_current;
+	unsigned 			_capacity;
+	unsigned			_current;
 
 public:
 	Span( void );
