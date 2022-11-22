@@ -1,4 +1,4 @@
-NAME = myOwnVector
+NAME = myOwnVectorClass
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CPP_EXTENSION = .cpp
