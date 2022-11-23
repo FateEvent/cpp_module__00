@@ -11,8 +11,8 @@ class Span
 {
 private:
 	std::vector<int>	_arr;
-	unsigned 					_capacity;
-	unsigned					_current;
+	unsigned 			_capacity;
+	unsigned			_current;
 
 public:
 	Span( void );
@@ -21,7 +21,7 @@ public:
 	Span&	operator=( const Span& rhs );
 	~Span( void );
 
-	void addNumber( unsigned data );
+	void	addNumber( unsigned data );
 	int&	getValue( unsigned const & index );
 	int&	operator[]( unsigned const & index );
 
@@ -31,7 +31,7 @@ public:
 
 	unsigned int	shortestSpan( void );
 	unsigned int	longestSpan( void );
-	void	addManyANumber( void );
+	void			addManyANumber( void );
 };
 
 #endif
