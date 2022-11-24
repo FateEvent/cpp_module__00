@@ -7,9 +7,9 @@ Span::Span( unsigned capacity ) : _capacity(capacity), _arr(capacity), _current(
 Span::Span( const Span& src ) : _capacity(src._capacity) { }
 
 Span&	Span::operator=( const Span& rhs ) {
-		_capacity = rhs._capacity;
-		return (*this);
-	}
+	_capacity = rhs._capacity;
+	return (*this);
+}
 
 Span::~Span( void ) { }
 
@@ -50,23 +50,24 @@ void Span::print( void )
 }
 
 unsigned int	Span::shortestSpan( void ) {
-	std::vector<int>					tmp(_arr);
-	std::vector<int>::const_iterator	it;
-	std::vector<int>::const_iterator	it2;
-
-	it = min_element(tmp.begin(), tmp.end());
-	int i = static_cast<int>(*it);
-	tmp.erase(it);
-	it2 = min_element(tmp.begin(), tmp.end());
-	int i2 = static_cast<int>(*it2);
-
-	return (i2 - i);
+	if (_arr.size() < 2)
+		throw ArrayException("Array::InvalidSizeException");
+	int	diff = abs(_arr[0] - _arr[1]);
+	for (std::size_t i = 0; i < _arr.size(); i++)
+	{
+		for (std::size_t j = i + 1; j < _arr.size(); j++)
+			if (abs(_arr[i] - _arr[j]) < diff)
+				diff = abs(_arr[i] - _arr[j]);
+	}
+	return (diff);
 }
 
 unsigned int	Span::longestSpan( void ) {
 	std::vector<int>::const_iterator	it;
 	std::vector<int>::const_iterator	it2;
 
+	if (_arr.size() < 2)
+		throw ArrayException("Array::InvalidSizeException");
 	it = min_element(_arr.begin(), _arr.end());
 	int i = static_cast<int>(*it);
 	it2 = max_element(_arr.begin(), _arr.end());
@@ -75,11 +76,11 @@ unsigned int	Span::longestSpan( void ) {
 	return (i2 - i);
 }
 
-struct c_unique {
+typedef struct c_unique {
 	int current;
-	c_unique() {current=0;}
-	int operator()() {return ++current;}
-}				UniqueNumber;
+	c_unique() { current = 0; }
+	int operator()() { return ++current; }
+}				uniqueNumber;
 
 static int	RandomNumber () { return (std::rand() % 100); }
 

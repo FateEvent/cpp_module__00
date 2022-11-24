@@ -5,14 +5,15 @@ int main()
 {
 	Span	span(10);
 	
-	span.addNumber(10);
 	span.addNumber(12);
 	span.addNumber(15);
 	span.addNumber(34);
 	span.addNumber(18);
-	span.addNumber(15);
+	span.addNumber(19);
 
-	for (int i = 0; i < 5; i++)
+	span.addManyANumber();
+
+	for (int i = 0; i < span.getSize(); i++)
 		std::cout << span[i] << std::endl;
 	std::cout << std::endl;
 
@@ -37,8 +38,6 @@ int main()
 	catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
-
-	span.addManyANumber();
 
 	std::cout << span[4] << std::endl;
 	std::cout << span[5] << std::endl;
