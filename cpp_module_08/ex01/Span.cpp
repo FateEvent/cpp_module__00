@@ -50,7 +50,7 @@ void Span::print( void )
 }
 
 unsigned int	Span::shortestSpan( void ) {
-	std::vector<int>									tmp(_arr);
+	std::vector<int>					tmp(_arr);
 	std::vector<int>::const_iterator	it;
 	std::vector<int>::const_iterator	it2;
 
