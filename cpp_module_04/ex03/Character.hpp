@@ -11,7 +11,7 @@ class Character : public ICharacter
 protected:
 	std::string	_name;
 	AMateria	*_stock[4];
-	int				_index;
+	int			_index;
 
 public:
 	Character( void );
