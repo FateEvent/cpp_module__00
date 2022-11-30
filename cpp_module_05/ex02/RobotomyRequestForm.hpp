@@ -27,6 +27,5 @@ public:
 };
 
 std::ostream&	operator << (std::ostream& os, const RobotomyRequestForm& form);
-void			robotomize( const std::string& target );
 
 #endif

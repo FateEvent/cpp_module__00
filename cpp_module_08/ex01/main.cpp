@@ -3,7 +3,7 @@
 
 int main()
 {
-	Span	span(10);
+	Span span = Span(10);
 	
 	span.addNumber(12);
 	span.addNumber(15);
