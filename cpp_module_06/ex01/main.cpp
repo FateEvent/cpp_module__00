@@ -4,10 +4,12 @@
 int	main()
 {
 	Data	*ptr = new Data;
+
 	ptr->data = "Hello, worlds!";
 	
 	uintptr_t	raw = serialize(ptr);
-	Data			*dPtr = deserialize(raw);
+	Data		*dPtr = deserialize(raw);
+
 	std::cout << dPtr->data << std::endl;
 }
 
