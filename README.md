@@ -22,7 +22,7 @@ As concerning function pointers:
 * <https://stackoverflow.com/questions/1485983/calling-c-member-functions-via-a-function-pointer>;
 * <http://www.newty.de/fpt/fpt.html#defi>.
 
-For module 03, here you may find some ideas for implementing an assignment operator for private members declared as __const__:
+For module 03, here you may find a (foolish?) idea for implementing an assignment operator for private members declared as __const__:
 
 * <https://stackoverflow.com/questions/4136156/const-member-and-assignment-operator-how-to-avoid-the-undefined-behavior>.
 
