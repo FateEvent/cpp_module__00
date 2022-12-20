@@ -14,13 +14,17 @@ may be useful to understand the concepts that are dealt with in the modules.
 
 ## Resources::
 
-For module 1, as concerning the difference between references and pointers:
+For module 01, as concerning the difference between references and pointers:
 
 * <https://stackoverflow.com/questions/57483/what-are-the-differences-between-a-pointer-variable-and-a-reference-variable>.
 
 As concerning function pointers:
 * <https://stackoverflow.com/questions/1485983/calling-c-member-functions-via-a-function-pointer>;
 * <http://www.newty.de/fpt/fpt.html#defi>.
+
+For module 03, here you may find some ideas for implementing an assignment operator for private members declared as __const__:
+
+* <https://stackoverflow.com/questions/4136156/const-member-and-assignment-operator-how-to-avoid-the-undefined-behavior>.
 
 As concerning exceptions:
 
