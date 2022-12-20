@@ -23,15 +23,20 @@ As concerning function pointers (module 01, exercise 05):
 * <https://stackoverflow.com/questions/1485983/calling-c-member-functions-via-a-function-pointer>;
 * <http://www.newty.de/fpt/fpt.html#defi>.
 
-For module 03, here you may find a (foolish?) idea for implementing an assignment operator for private members declared as __const__:
+For a clear explanation of the concept of fixed point numbers (module 03), consult:
 
-* <https://stackoverflow.com/questions/4136156/const-member-and-assignment-operator-how-to-avoid-the-undefined-behavior>.
+* <https://stackoverflow.com/questions/10067510/fixed-point-arithmetic-in-c-programming>;
+* <https://www.youtube.com/watch?v=ZMsrZvBmQnU>.
 
 As concerning the task of checking whether a point belongs into a triangle (module 03, exercise 03), here are some interesting links:
 
 * <https://www.youtube.com/watch?v=HYAgJN3x4GA>;
 * <https://stackoverflow.com/questions/2049582/how-to-determine-if-a-point-is-in-a-2d-triangle>;
 * <https://stackoverflow.com/questions/328107/how-can-you-determine-a-point-is-between-two-other-points-on-a-line-segment>.
+
+For module 03, here you may find a (foolish?) idea for implementing an assignment operator for private members declared as __const__:
+
+* <https://stackoverflow.com/questions/4136156/const-member-and-assignment-operator-how-to-avoid-the-undefined-behavior>.
 
 As concerning exceptions (module 05):
 
