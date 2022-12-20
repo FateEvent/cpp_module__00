@@ -1,13 +1,13 @@
 #include "Point.hpp"
 
-bool	bsp( Point const a, Point const b, Point const c, Point const point)
+bool	bsp(Point const a, Point const b, Point const c, Point const point)
 {
 	float	s1 = c.getY() - a.getY();
 	float	s2 = c.getX() - a.getX();
 	float	s3 = b.getY() - a.getY();
 	float	s4 = point.getY() - a.getY();
 
-	float	w1 = (a.getX() * s1 + s4 * s2 - point.getX() * s1) / (s3 * s2 - (b.getX()-a.getX()) * s1);
+	float	w1 = (a.getX() * s1 + s4 * s2 - point.getX() * s1) / (s3 * s2 - (b.getX() - a.getX()) * s1);
 	float	w2 = (s4 - w1 * s3) / s1;
 
 	bool	onIt = (isBetween(a, b, point) || isBetween(b, c, point) || isBetween(c, a, point));

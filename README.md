@@ -29,6 +29,7 @@ For module 03, here you may find a (foolish?) idea for implementing an assignmen
 
 As concerning the task of checking whether a point belongs into a triangle (module 03, exercise 03), here are some interesting links:
 
+* <https://www.youtube.com/watch?v=HYAgJN3x4GA>;
 * <https://stackoverflow.com/questions/2049582/how-to-determine-if-a-point-is-in-a-2d-triangle>;
 * <http://totologic.blogspot.com/2014/01/accurate-point-in-triangle-test.html>;
 * <https://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not>;
