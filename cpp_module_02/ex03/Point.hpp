@@ -10,13 +10,12 @@ private:
 	Fixed const	_x;
 	Fixed const	_y;
 
-	Point&	operator = ( Point const & cpy ) throw ();
-
 public:
 	Point( void );
 	Point( float const a, float const b );
 	Point( Point const& cpy );
 	~Point( void );
+	Point&	operator = ( Point const & cpy ) throw ();
 	float	getX( void ) const;
 	float	getY( void ) const;
 

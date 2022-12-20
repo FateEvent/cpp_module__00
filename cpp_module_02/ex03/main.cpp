@@ -31,9 +31,10 @@ int main( void ) {
 	Point	x = d;
 	std::cout << x << std::endl;
 
-//	Point	y;		// I made it impossible to use the '=' operator since the
-//	y = l;			// data members of the function are declared as constant
-//	std::cout << y << std::endl;
+	Point	y(13.6f, 8);		// I could make it impossible to use the '=' operator since
+	y = l;						// the data members of the function are declared as constant
+								// by putting the equal operator among the private members
+	std::cout << y << std::endl;
 
 	return (0);
 }
