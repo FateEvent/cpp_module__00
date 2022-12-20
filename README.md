@@ -32,7 +32,10 @@ As concerning the task of checking whether a point belongs into a triangle (modu
 
 * <https://www.youtube.com/watch?v=HYAgJN3x4GA>;
 * <https://stackoverflow.com/questions/2049582/how-to-determine-if-a-point-is-in-a-2d-triangle>;
+* <https://www.baeldung.com/cs/check-if-point-is-in-2d-triangle>;
 * <https://stackoverflow.com/questions/328107/how-can-you-determine-a-point-is-between-two-other-points-on-a-line-segment>.
+
+It's important to notice, however, that a fixed point number is not meant to offer precision, so certain algorithms such as the Triangles Area Approach, which performs very precise calculations, may not be suitable for the task.
 
 For module 03, here you may find a (foolish?) idea for implementing an assignment operator for private members declared as __const__:
 
