@@ -6,7 +6,7 @@
 
 typedef struct s_data {
 	std::string	data;
-}							Data;
+}				Data;
 
 uintptr_t	serialize(Data* ptr);
 Data*		deserialize(uintptr_t raw);
