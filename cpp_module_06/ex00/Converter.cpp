@@ -18,7 +18,7 @@ enum type	typeDetecter(std::string const& str)
 	unsigned	i;
 	long	n = 0;
 	bool	isNeg = false;
-	for(i = 0; str[i] != 0; ++i) {
+	for (i = 0; str[i] != 0; ++i) {
 		if (str[i] == '-') {
 			if (i == 0 && (str[i + 1] >= 48 && str[i + 1] <= 57)) {
 				isNeg = true;
@@ -29,19 +29,19 @@ enum type	typeDetecter(std::string const& str)
 		}
 		if (!std::isdigit(str[i])) {
 			i = 0;
-			break;
+			break ;
 		}
 		n *= 10;
 		n += str[i] - '0';
 		if (isNeg) {
 			if (n - 1 > std::numeric_limits<int>::max()) {
 				i = 0;
-				break;
+				break ;
 			}
 		} else {
 			if (n > std::numeric_limits<int>::max()) {
 				i = 0;
-				break;
+				break ;
 			}
 		}
 	}
