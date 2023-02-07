@@ -85,7 +85,7 @@ typedef struct c_unique {
 static int	RandomNumber () { return (std::rand() % 100); }
 
 void	Span::addManyANumber( void ) {
-	std::srand (unsigned(std::time(0)));
-	std::generate (_arr.begin() + _current, _arr.end(), RandomNumber);
+	std::srand(unsigned(std::time(0)));
+	std::generate(_arr.begin() + _current, _arr.end(), RandomNumber);
 	_current = _capacity;
 }
