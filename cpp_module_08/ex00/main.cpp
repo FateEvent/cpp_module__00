@@ -12,7 +12,7 @@
 
 struct c_unique {
 	int current;
-	c_unique() {current=0;}
+	c_unique() {current = 0;}
 	int operator()() {return ++current;}
 }				UniqueNumber;
 
@@ -65,6 +65,4 @@ int	main() {
 		std::cerr << e.what() << std::endl;
 		std::cout << "Nope." << std::endl;
 	}
-
-//	std::cout	<< 
 }
