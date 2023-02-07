@@ -3,10 +3,10 @@
 
 # include <iostream>
 # include <stack>
-# include <list>
+# include <deque>
 
-template <typename T>
-class	MutantStack : public std::stack<T>
+template<typename T, typename Container = std::deque<T> >
+class	MutantStack : public std::stack<T, Container>
 {
 	public:
 		MutantStack() { }
