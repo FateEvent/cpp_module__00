@@ -58,5 +58,33 @@ int main()
 	}
 	std::stack<int, std::list<int> > s2(mlist);
 
+
+	std::list<int>	lst;
+
+	lst.push_back(5);
+	lst.push_back(17);
+
+	std::cout << lst.back() << std::endl; lst.pop_back();
+	
+	std::cout << lst.size() << std::endl;
+	
+	lst.push_back(3);
+	lst.push_back(5);
+	lst.push_back(737);
+	//[...]
+	lst.push_back(0);
+	
+	std::list<int>::iterator it3 = lst.begin();
+	std::list<int>::iterator ite3 = lst.end();
+	
+	++it3;
+	--it3;
+	while (it3 != ite3)
+	{
+		std::cout << *it3 << std::endl;
+		++it3;
+	}
+	std::list<int> s3(lst);
+
 	return 0;
 }
