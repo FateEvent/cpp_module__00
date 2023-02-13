@@ -16,7 +16,6 @@ int main(int ac, char *av[])
 	std::string		buffer;
 	std::string		s1(av[2]);
 	std::string		s2(av[3]);
-	bool			light_switch(true);
 
 	if (!inFlux || !outFlux)
 	{
