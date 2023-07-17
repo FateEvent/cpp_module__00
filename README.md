@@ -46,6 +46,8 @@ As concerning exceptions (module 05):
 * <https://stackoverflow.com/questions/35215169/c-create-a-class-exception>;
 * <https://developpement-informatique.com/article/366/la-gestion-dexceptions-en-c++---declaration--utilisation-et-personnalisation>.
 
+For the exercise 00 of module 06 it is possible to use the `<regex>` library and it is important to understand that `strtod` and `strtof` functions may return constant expressions such as +INFF, -INF, NAN, etc.
+
 As concerning iterators (module 08):
 
 * <https://www.simplilearn.com/tutorials/cpp-tutorial/iterators-in-cpp>;
