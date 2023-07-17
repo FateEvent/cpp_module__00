@@ -15,10 +15,6 @@ public:
 	FragTrap &	operator = ( const FragTrap &other );
 	void		attack( const std::string& target );
 	void		highFivesGuys( void );
-
-protected:
-	int			_hitPoints;
-	int			_attackDamage;
 };
 
 #endif

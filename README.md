@@ -41,6 +41,10 @@ For module 03, here you may find a (foolish?) idea for implementing an assignmen
 
 * <https://stackoverflow.com/questions/4136156/const-member-and-assignment-operator-how-to-avoid-the-undefined-behavior>.
 
+Here is some mateial concerning diamond and virtual inheritance (exercise 03 of module 03):
+* <https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem>;
+* <https://en.wikipedia.org/wiki/Virtual_inheritance>.
+
 As concerning exceptions (module 05):
 
 * <https://stackoverflow.com/questions/35215169/c-create-a-class-exception>;

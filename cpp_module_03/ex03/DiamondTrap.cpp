@@ -1,15 +1,23 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap( void ) : ClapTrap("DiamC3P0_clap_name"), _name("default DiamC3P0")
+DiamondTrap::DiamondTrap( void ) : ClapTrap("DiamC3P0_clap_name"), ScavTrap("default DiamC3P0"),
+	FragTrap("default DiamC3P0"), _name("default DiamC3P0")
 {
 	_hitPoints = FragTrap::_hitPoints;
+	std::cout << _hitPoints << std::endl;
+	std::cout << FragTrap::_hitPoints << std::endl;
 	_energyPoints = ScavTrap::_energyPoints;
+	std::cout << _energyPoints << std::endl;
+	std::cout << ScavTrap::_energyPoints << std::endl;
 	_attackDamage = FragTrap::_attackDamage;
+	std::cout << _attackDamage << std::endl;
+	std::cout << FragTrap::_attackDamage << std::endl;
 	std::cout << "The DiamondTrap Mountain " << this->_name << " has risen from the depths of the RoboCorps factories!" << std::endl;
 }
 
 
-DiamondTrap::DiamondTrap(std::string const name) : ClapTrap(name + "_clap_name"), _name(name)
+DiamondTrap::DiamondTrap(std::string const name) : ClapTrap(name + "_clap_name"), ScavTrap(name),
+	FragTrap(name), _name(name)
 {
 	_hitPoints = FragTrap::_hitPoints;
 	_energyPoints = ScavTrap::_energyPoints;
