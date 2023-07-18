@@ -33,5 +33,9 @@ int main()
 	// std::cout << "The robot " << kay->getName() << " has " << kay->getHitPoints() << " hit points left." << std::endl;
 
 	delete fab;
+	delete shanti;
+	delete kay;
+	delete kitty;
+	delete bruce;
 	return (0);
 }
