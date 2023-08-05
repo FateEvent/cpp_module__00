@@ -19,10 +19,16 @@ int main ()
 	std::cout << std::endl;
 	std::cout << "Make your choice!" << std::endl;
 	std::cout << std::endl;
-	while (!exitValue)
+	while (std::cin.fail() || !exitValue)
 	{
 		getline(std::cin, input);
-		if (input == "ADD")
+		if (input.empty())
+		{
+			std::cout << std::endl;
+			std::cout << "You're quitting the program." << std::endl;
+			exitValue = 1;
+		}
+		else if (input == "ADD")
 		{
 			std::cout << std::endl;
 			std::cout << "Please add a contact." << std::endl;
