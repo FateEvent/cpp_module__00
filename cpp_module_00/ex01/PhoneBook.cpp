@@ -1,10 +1,7 @@
 #include "PhoneBook.hpp"
 
 
-PhoneBook::PhoneBook() : _contactArr(), _nextIndex(0)
-{
-
-}
+PhoneBook::PhoneBook() : _contactArr(), _nextIndex(0) {}
 
 
 void	PhoneBook::addContact(Contact *entry)
@@ -48,7 +45,7 @@ void    PhoneBook::searchContact(void)
 	int             input(-1);
 
 	headerDisplay();
-	while (i < 8 && this->_contactArr[i].getFirstName() != "empty string")
+	while (i < 8 && this->_contactArr[i].getFirstName() != "empty string" && !std::cin.eof())
 	{
 		std::cout.setf ( std::ios::dec, std::ios::basefield );
 		std::cout.setf ( std::ios::showbase );
@@ -88,10 +85,9 @@ void    PhoneBook::searchContact(void)
 	{
 		std::cout << "Please, now insert the index of the entry you're looking for." << std::endl;
 		std::cin >> input;
-		while (std::cin.fail() || input < 0 || input >= i)
+		while ((input < 0 || input >= i) && !std::cin.eof())
 		{
 			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "This is not the entry you are looking for." << std::endl;
 			std::cin >> input;
 		}
